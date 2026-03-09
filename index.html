@@ -3,69 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vesta Pacific Tech | Smart Screen Solutions</title>
+    <title>Vesta Pacific Tech | Premium Smart Displays</title>
     <style>
-        :root { --gold: #d4af37; --dark: #080808; --gray: #151515; --text: #e0e0e0; }
-        body { margin: 0; font-family: 'Inter', -apple-system, sans-serif; background-color: var(--dark); color: var(--text); line-height: 1.6; }
+        /* Premium Renk Paleti: Antrasit & Safir Mavisi */
+        :root { 
+            --accent: #0070f3; /* Modern Teknoloji Mavisi */
+            --bg: #000000; 
+            --card-bg: #111111;
+            --text-main: #ffffff;
+            --text-sub: #888888;
+        }
         
-        nav { padding: 25px 8%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #222; background: rgba(8,8,8,0.9); position: sticky; top: 0; z-index: 100; }
-        .logo { font-size: 1.4rem; font-weight: 800; letter-spacing: 3px; }
-        .logo span { color: var(--gold); }
+        body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background-color: var(--bg); color: var(--text-main); line-height: 1.5; }
+        
+        nav { padding: 30px 10%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #222; }
+        .logo { font-size: 1.2rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; }
+        .logo span { color: var(--accent); }
 
-        .hero { padding: 100px 8% 60px; text-align: center; }
-        .hero h1 { font-size: 3.8rem; margin-bottom: 25px; letter-spacing: -2px; line-height: 1.1; color: #fff; }
-        .hero h1 span { color: var(--gold); }
-        .hero p { font-size: 1.25rem; color: #a0a0a0; max-width: 800px; margin: 0 auto 50px; }
+        .hero { padding: 120px 10% 80px; text-align: center; }
+        .hero h1 { font-size: 4rem; font-weight: 800; margin-bottom: 24px; letter-spacing: -2px; }
+        .hero h1 span { 
+            background: linear-gradient(90deg, #fff, #888);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero p { font-size: 1.3rem; color: var(--text-sub); max-width: 750px; margin: 0 auto 60px; font-weight: 400; }
 
         .showcase { 
             width: 100%; max-width: 1100px; margin: 0 auto; 
-            border: 1px solid #333; border-radius: 12px; overflow: hidden;
-            box-shadow: 0 40px 100px rgba(0,0,0,0.7); background: #000;
+            background: var(--card-bg); border-radius: 24px; padding: 15px;
+            border: 1px solid #333; box-shadow: 0 50px 100px rgba(0,0,0,0.8);
         }
-        .showcase img { width: 100%; height: auto; display: block; opacity: 0.9; }
+        .showcase img { width: 100%; border-radius: 12px; display: block; filter: brightness(0.9); transition: 0.5s; }
+        .showcase img:hover { filter: brightness(1); }
 
-        .features { padding: 80px 8%; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-        .feature-card { background: var(--gray); padding: 40px; border-radius: 20px; border: 1px solid #222; transition: 0.3s; }
-        .feature-card:hover { border-color: var(--gold); transform: translateY(-5px); }
-        .feature-card h3 { color: var(--gold); font-size: 1.5rem; margin-bottom: 15px; }
-        .feature-card p { color: #888; font-size: 1rem; }
+        .features { padding: 100px 10%; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+        .feature-card { border-left: 2px solid #222; padding-left: 30px; transition: 0.4s; }
+        .feature-card:hover { border-left-color: var(--accent); }
+        .feature-card h3 { font-size: 1.4rem; margin-bottom: 12px; letter-spacing: -0.5px; }
+        .feature-card p { color: var(--text-sub); font-size: 1rem; }
 
-        footer { padding: 60px 8%; text-align: center; border-top: 1px solid #222; color: #555; font-size: 0.9rem; }
+        footer { padding: 80px 10%; text-align: center; border-top: 1px solid #111; color: #444; font-size: 0.8rem; letter-spacing: 1px; }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="logo">VESTA PACIFIC <span>TECH</span></div>
-        <div style="font-size: 0.9rem; letter-spacing: 1px; color: #888;">SAN DIEGO, CA</div>
+        <div class="logo">Vesta Pacific <span>Tech</span></div>
+        <div style="font-size: 0.8rem; color: var(--text-sub);">San Diego // CA</div>
     </nav>
 
     <section class="hero">
         <h1>Smart Screen Solutions for <span>Modern Business</span></h1>
-        <p>Beyond traditional displays. We provide high-impact, cloud-managed digital signage for storefronts, office lobbies, and interactive spaces.</p>
+        <p>Enterprise-grade digital signage ecosystems. High-impact visual management for showrooms, office spaces, and commercial hubs.</p>
         
         <div class="showcase">
-            <img src="preview.jpg" alt="Vesta Pacific Tech Digital Showcase">
+            <img src="preview.jpg" alt="Vesta Pacific Display Systems">
         </div>
     </section>
 
     <section class="features">
         <div class="feature-card">
-            <h3>Any Surface</h3>
-            <p>From high-brightness window displays to indoor lounge screens and interactive digital boards.</p>
+            <h3>Versatile Integration</h3>
+            <p>From architectural window displays to indoor lounge networks and digital menus.</p>
         </div>
         <div class="feature-card">
-            <h3>Remote Management</h3>
-            <p>Update your entire screen network instantly from any device, anywhere in the world.</p>
+            <h3>Remote Operations</h3>
+            <p>Full control over your global display network through our secure cloud-based infrastructure.</p>
         </div>
         <div class="feature-card">
-            <h3>Dynamic Content</h3>
-            <p>Engage your audience with live data, social feeds, and automated business listings.</p>
+            <h3>Intelligent Content</h3>
+            <p>Real-time data feeds, automated listings, and dynamic audience engagement tools.</p>
         </div>
     </section>
 
     <footer>
-        &copy; 2026 Vesta Pacific Tech. Precision Digital Signage.
+        &copy; 2026 VESTA PACIFIC TECH // REDEFINING DIGITAL ENVIRONMENTS
     </footer>
 
 </body>
