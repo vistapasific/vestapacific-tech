@@ -3,72 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vesta Pacific Tech | Future of Display Intelligence</title>
+    <title>Vesta Pacific Tech</title>
     <style>
-        :root { 
-            --accent: #0071e3; 
-            --bg: #000000;
-            --glass: rgba(255, 255, 255, 0.04);
-            --border: rgba(255, 255, 255, 0.1);
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
         body { 
-            background-color: var(--bg); 
+            background-color: #000; 
             color: #fff; 
-            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
-            -webkit-font-smoothing: antialiased;
-            overflow-x: hidden;
-            min-height: 100vh;
-        }
-
-        nav { 
-            padding: 30px 8%; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            position: absolute;
-            width: 100%;
-            z-index: 100;
-        }
-
-        /* Yeni Logo Ayarları */
-        .logo img { 
-            height: 50px; /* Logonun boyutu */
-            width: auto;
-            display: block;
-            filter: drop-shadow(0 0 10px rgba(0, 113, 227, 0.2));
-            transition: all 0.4s ease;
-        }
-
-        .logo img:hover {
-            transform: scale(1.05);
-            filter: drop-shadow(0 0 15px rgba(0, 113, 227, 0.5));
-        }
-
-        .hero {
-            height: 85vh;
+            font-family: -apple-system, sans-serif; 
+            margin: 0;
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
+            justify-content: center;
+            min-height: 100vh;
             text-align: center;
-            padding: 0 20px;
-            background: radial-gradient(circle at center, #111 0%, #000 100%);
         }
+        
+        .container { padding: 20px; }
 
-        .hero h1 {
-            font-size: clamp(2.5rem, 7vw, 5rem);
-            font-weight: 700;
-            letter-spacing: -0.04em;
+        /* Logo Ayarı */
+        .logo-img {
+            max-width: 250px;
+            height: auto;
             margin-bottom: 20px;
-            background: linear-gradient(180deg, #fff 0%, #888 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .hero p {
-            font-size: clamp(1rem, 2vw, 1.2rem);
-            color: #a1a1a6;
-            max-
+        h1 { font-size: 2.5rem; letter-spacing: -1px; margin-bottom: 10px; }
+        p { color: #888; max-width: 500px; line-height: 1.6; }
+        
+        .footer {
+            margin-top: 50px;
+            font-size: 0.7rem;
+            color: #444;
+            letter-spacing: 2px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <img src="assets/vpt logo-vpt.png" alt="Vesta Pacific Tech Logo" class="logo-img">
+        
+        <h1>Display Perfection.</h1>
+        <p>Smart screen solutions for modern business. High-impact digital signage for showrooms and offices.</p>
+        
+        <div class="footer">
+            &copy; 2026 VESTA PACIFIC TECH // SAN DIEGO
+        </div>
+    </div>
+
+</body>
+</html>
