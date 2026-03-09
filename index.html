@@ -20,10 +20,11 @@
             font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
+            min-height: 100vh;
         }
 
         nav { 
-            padding: 30px 10%; 
+            padding: 30px 8%; 
             display: flex; 
             justify-content: space-between; 
             align-items: center; 
@@ -34,26 +35,15 @@
 
         .logo { 
             font-weight: 700; 
-            font-size: 1.4rem;
-            letter-spacing: 0.25em;
-            text-transform: uppercase;
-            color: #fff;
-        }
-
-        .logo span { 
-            color: var(--accent);
-            font-weight: 800;
-        }
-
-        .location {
-            color: rgba(255, 255, 255, 0.4);
-            font-size: 0.7rem;
-            letter-spacing: 0.2em;
+            font-size: 1.2rem;
+            letter-spacing: 0.3em;
             text-transform: uppercase;
         }
+
+        .logo span { color: var(--accent); }
 
         .hero {
-            height: 90vh;
+            height: 85vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -64,7 +54,7 @@
         }
 
         .hero h1 {
-            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-size: clamp(2.5rem, 7vw, 5rem);
             font-weight: 700;
             letter-spacing: -0.04em;
             margin-bottom: 20px;
@@ -74,52 +64,95 @@
         }
 
         .hero p {
-            font-size: clamp(1rem, 2vw, 1.25rem);
+            font-size: clamp(1rem, 2vw, 1.2rem);
             color: #a1a1a6;
-            max-width: 700px;
-            margin-bottom: 50px;
+            max-width: 650px;
+            margin-bottom: 40px;
         }
 
         .showcase-wrapper {
             width: 90%;
-            max-width: 1100px;
-            padding: 20px;
+            max-width: 1000px;
+            padding: 15px;
             background: var(--glass);
             border: 1px solid var(--border);
-            border-radius: 30px;
+            border-radius: 24px;
             backdrop-filter: blur(20px);
-            margin: -100px auto 100px;
+            margin: -80px auto 80px;
         }
 
         .showcase-wrapper img {
             width: 100%;
-            border-radius: 15px;
+            border-radius: 12px;
             display: block;
-            box-shadow: 0 0 80px rgba(0, 113, 227, 0.15);
+            box-shadow: 0 0 50px rgba(0, 113, 227, 0.1);
         }
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            padding: 50px 10% 100px;
-            max-width: 1400px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            padding: 40px 8% 100px;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
         .card {
-            padding: 50px 40px;
+            padding: 40px;
             background: var(--glass);
             border: 1px solid var(--border);
-            border-radius: 24px;
-            transition: all 0.4s ease;
+            border-radius: 20px;
+            transition: 0.3s;
         }
 
-        .card:hover {
-            border-color: var(--accent);
-            transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.07);
-        }
+        .card:hover { border-color: var(--accent); background: rgba(255,255,255,0.06); }
+        .card h3 { font-size: 1.4rem; margin-bottom: 15px; color: var(--accent); }
+        .card p { color: #86868b; font-size: 0.95rem; line-height: 1.6; }
 
-        .card h3 {
-            font-size
+        footer {
+            padding: 60px;
+            text-align: center;
+            color: #424245;
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            border-top: 1px solid #111;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">VESTA PACIFIC <span>TECH</span></div>
+        <div style="font-size: 0.7rem; color: #444;">SAN DIEGO // CA</div>
+    </nav>
+
+    <section class="hero">
+        <h1>Display Perfection.</h1>
+        <p>Smart screen solutions for modern business. High-impact digital signage for showrooms, offices, and commercial hubs.</p>
+    </section>
+
+    <div class="showcase-wrapper">
+        <img src="preview.jpg" alt="Vesta Pacific Tech Showcase">
+    </div>
+
+    <section class="grid">
+        <div class="card">
+            <h3>Cloud OS</h3>
+            <p>Full remote management with instant updates across your entire display network.</p>
+        </div>
+        <div class="card">
+            <h3>Versatile</h3>
+            <p>Expert solutions for retail windows, lobby screens, and digital menu boards.</p>
+        </div>
+        <div class="card">
+            <h3>Live Data</h3>
+            <p>Automate your content with real-time weather, news, and custom business feeds.</p>
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2026 VESTA PACIFIC TECH. PRECISION DIGITAL ENVIRONMENTS.
+    </footer>
+
+</body>
+</html>
