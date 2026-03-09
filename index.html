@@ -3,72 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vesta Pacific Tech | Digital Signage</title>
+    <title>Vesta Pacific Tech | Premium Digital Signage Solutions</title>
     <style>
-        /* Modern ve Lüks Tasarım Ayarları */
-        body { 
-            margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            background-color: #050505; color: white; display: flex; flex-direction: column; align-items: center;
-        }
-        header { 
-            width: 100%; padding: 40px 0; text-align: center; 
-            background: linear-gradient(to bottom, #111, #000); border-bottom: 1px solid #222;
-        }
-        .brand { font-size: 3rem; font-weight: 800; letter-spacing: 4px; color: #fff; text-transform: uppercase; }
-        .brand span { color: #d4af37; /* Gold rengi lüks hissi verir */ }
+        :root { --gold: #d4af37; --dark: #0a0a0a; --gray: #1a1a1a; }
+        body { margin: 0; font-family: 'Inter', sans-serif; background-color: var(--dark); color: white; line-height: 1.6; }
         
-        /* Simüle Edilmiş Xibo Ekranı */
-        .preview-container {
-            margin-top: 50px; width: 80%; max-width: 1000px; aspect-ratio: 16 / 9;
-            background: #111; border: 10px solid #222; border-radius: 15px; 
-            box-shadow: 0 20px 50px rgba(0,0,0,0.8); position: relative; overflow: hidden;
-        }
-        .placeholder-text {
-            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-            color: #444; font-size: 1.2rem; text-align: center;
-        }
+        /* Navbar */
+        nav { padding: 20px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #222; }
+        .logo { font-size: 1.5rem; font-weight: 800; letter-spacing: 2px; }
+        .logo span { color: var(--gold); }
 
-        /* Hizmet Özellikleri */
-        .features { 
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
-            gap: 30px; width: 80%; margin-top: 60px; padding-bottom: 100px;
+        /* Hero Section */
+        .hero { padding: 80px 5%; text-align: center; background: radial-gradient(circle at center, #1a1a1a 0%, #0a0a0a 100%); }
+        .hero h1 { font-size: 3.5rem; margin-bottom: 20px; letter-spacing: -1px; }
+        .hero p { font-size: 1.2rem; color: #888; max-width: 700px; margin: 0 auto 40px; }
+
+        /* Showcase Area (Xibo Preview) */
+        .showcase { 
+            width: 90%; max-width: 1100px; margin: 0 auto; 
+            border: 1px solid #333; border-radius: 20px; overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
         }
-        .feature-card { background: #111; padding: 30px; border-radius: 10px; border: 1px solid #222; text-align: center; }
-        .feature-card h3 { color: #d4af37; margin-bottom: 15px; }
-        .feature-card p { color: #aaa; line-height: 1.6; }
+        .showcase img { width: 100%; display: block; }
+
+        /* Sectors Section */
+        .sectors { padding: 80px 5%; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+        .sector-card { background: var(--gray); padding: 30px; border-radius: 15px; text-align: center; border: 1px solid #222; }
+        .sector-card h3 { color: var(--gold); margin-bottom: 10px; }
+        
+        footer { padding: 40px; text-align: center; border-top: 1px solid #222; color: #444; font-size: 0.9rem; }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="brand">VESTA PACIFIC <span>TECH</span></div>
-        <p style="color: #888; margin-top: 10px;">Future of Real Estate Window Displays</p>
-    </header>
+    <nav>
+        <div class="logo">VESTA PACIFIC <span>TECH</span></div>
+        <div style="color: #666;">San Diego, CA</div>
+    </nav>
 
-    <div class="preview-container">
-        <div class="placeholder-text">
-            [ San Diego Digital Showcase ]<br>
-            <small>Live Preview Loading...</small>
-        </div>
-    </div>
-
-    <section class="features">
-        <div class="feature-card">
-            <h3>Dynamic Content</h3>
-            <p>Live weather, real-time news, and digital clocks integrated directly into your listings.</p>
-        </div>
-        <div class="feature-card">
-            <h3>Cloud Managed</h3>
-            <p>Update your window displays from anywhere in the world instantly.</p>
-        </div>
-        <div class="feature-card">
-            <h3>Smart QR Code</h3>
-            <p>Connect physical passersby to your digital listings with one simple scan.</p>
+    <section class="hero">
+        <h1>Transform Your Windows into <span>Digital Experiences</span></h1>
+        <p>Expert cloud-based digital signage solutions for modern businesses. From real estate displays to interactive retail menus.</p>
+        
+        <div class="showcase">
+            <img src="preview.jpg" alt="Vesta Pacific Digital Signage Display Example">
         </div>
     </section>
 
-    <footer style="margin-bottom: 40px; color: #444;">
-        &copy; 2026 Vesta Pacific Tech | San Diego, CA
+    <section class="sectors">
+        <div class="sector-card"><h3>Real Estate</h3><p>Automated listings & local info.</p></div>
+        <div class="sector-card"><h3>Retail</h3><p>Dynamic promos & branding.</p></div>
+        <div class="sector-card"><h3>Hospitality</h3><p>Digital menus & guest info.</p></div>
+        <div class="sector-card"><h3>Clinics</h3><p>Patient info & news feeds.</p></div>
+    </section>
+
+    <footer>
+        &copy; 2026 Vesta Pacific Tech. All rights reserved.
     </footer>
 
 </body>
