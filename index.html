@@ -117,26 +117,38 @@
             letter-spacing: 0.2em;
         }
 
-        .nav {
-            position: absolute;
-            top: 0;
-            width: 100%;
-            padding: 30px 10%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+        ./* Mevcut navbar ve logo stillerini değiştir */
+nav { 
+    padding: 30px 10%; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    /* border-bottom: 1px solid rgba(255, 255, 255, 0.1); */ /* İstersen kaldırabiliriz */
+    position: absolute; /* Hero bölümünün üzerine gelsin */
+    width: 100%;
+    z-index: 100;
+}
 
-        .logo { font-weight: 700; font-size: 1rem; letter-spacing: 0.3em; }
-        .logo span { color: var(--accent); }
-    </style>
-</head>
-<body>
+.logo { 
+    font-weight: 700; 
+    font-size: 1.6rem; /* Biraz büyütüyoruz */
+    letter-spacing: 0.25em; /* Tesla tarzı aralık */
+    text-transform: uppercase;
+    color: #fff; /* Başlangıç rengi beyaz */
+}
 
-    <nav class="nav">
-        <div class="logo">VESTA PACIFIC <span>TECH</span></div>
-        <div style="color: #424245; font-size: 0.7rem;">CALIFORNIA // 2026</div>
-    </nav>
+.logo span { 
+    color: var(--accent); /* "TECH" kısmına mavi vurgu */
+    font-weight: 800; /* Daha kalın */
+}
+
+/* Sağdaki küçük metin için stil */
+.nav > div:last-child {
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
 
     <section class="hero">
         <h1>Display Perfection.</h1>
