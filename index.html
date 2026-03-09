@@ -8,43 +8,58 @@
         body { 
             background-color: #000; 
             color: #fff; 
-            font-family: -apple-system, sans-serif; 
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif; 
             margin: 0;
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
             min-height: 100vh;
-            text-align: center;
         }
         
-        .container { padding: 20px; }
-
-        /* Logo Ayarı */
-        .logo-img {
-            max-width: 250px;
-            height: auto;
-            margin-bottom: 20px;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
+        .container { 
+            text-align: center;
+            padding: 20px;
         }
 
-        h1 { font-size: 2.5rem; letter-spacing: -1px; margin-bottom: 10px; }
-        p { color: #888; max-width: 500px; line-height: 1.6; }
+        .logo-img {
+            width: 300px; /* Logoyu buradan büyütebilirsin */
+            height: auto;
+            margin-bottom: 30px;
+            filter: drop-shadow(0 0 15px rgba(0, 113, 227, 0.4));
+        }
+
+        h1 { 
+            font-size: 3rem; 
+            font-weight: 700;
+            letter-spacing: -1px; 
+            margin-bottom: 15px;
+            background: linear-gradient(180deg, #fff 0%, #888 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        p { 
+            color: #a1a1a6; 
+            max-width: 500px; 
+            margin: 0 auto;
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
         
         .footer {
-            margin-top: 50px;
+            position: absolute;
+            bottom: 40px;
             font-size: 0.7rem;
             color: #444;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <img src="assets/vpt logo-vpt.png" alt="Vesta Pacific Tech Logo" class="logo-img">
+        <img src="assets/logo.png" alt="Vesta Pacific Tech Logo" class="logo-img">
         
         <h1>Display Perfection.</h1>
         <p>Smart screen solutions for modern business. High-impact digital signage for showrooms and offices.</p>
