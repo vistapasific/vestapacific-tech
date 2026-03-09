@@ -3,82 +3,167 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vesta Pacific Tech | Premium Smart Displays</title>
+    <title>Vesta Pacific Tech | Future of Display Intelligence</title>
     <style>
-        /* Premium Renk Paleti: Antrasit & Safir Mavisi */
+        /* Apple & Tesla Inspired Design Language */
         :root { 
-            --accent: #0070f3; /* Modern Teknoloji Mavisi */
-            --bg: #000000; 
-            --card-bg: #111111;
-            --text-main: #ffffff;
-            --text-sub: #888888;
+            --accent: #0071e3; /* Apple Blue */
+            --bg: #000000;
+            --glass: rgba(255, 255, 255, 0.04);
+            --border: rgba(255, 255, 255, 0.1);
         }
-        
-        body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background-color: var(--bg); color: var(--text-main); line-height: 1.5; }
-        
-        nav { padding: 30px 10%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #222; }
-        .logo { font-size: 1.2rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; }
-        .logo span { color: var(--accent); }
 
-        .hero { padding: 120px 10% 80px; text-align: center; }
-        .hero h1 { font-size: 4rem; font-weight: 800; margin-bottom: 24px; letter-spacing: -2px; }
-        .hero h1 span { 
-            background: linear-gradient(90deg, #fff, #888);
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            background-color: var(--bg); 
+            color: #fff; 
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section - Tesla Style */
+        .hero {
+            height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            background: radial-gradient(circle at center, #111 0%, #000 100%);
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 700;
+            letter-spacing: -0.04em;
+            margin-bottom: 20px;
+            background: linear-gradient(180deg, #fff 0%, #888 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        .hero p { font-size: 1.3rem; color: var(--text-sub); max-width: 750px; margin: 0 auto 60px; font-weight: 400; }
 
-        .showcase { 
-            width: 100%; max-width: 1100px; margin: 0 auto; 
-            background: var(--card-bg); border-radius: 24px; padding: 15px;
-            border: 1px solid #333; box-shadow: 0 50px 100px rgba(0,0,0,0.8);
+        .hero p {
+            font-size: clamp(1.1rem, 2vw, 1.5rem);
+            color: #a1a1a6;
+            max-width: 800px;
+            font-weight: 400;
+            margin-bottom: 50px;
         }
-        .showcase img { width: 100%; border-radius: 12px; display: block; filter: brightness(0.9); transition: 0.5s; }
-        .showcase img:hover { filter: brightness(1); }
 
-        .features { padding: 100px 10%; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
-        .feature-card { border-left: 2px solid #222; padding-left: 30px; transition: 0.4s; }
-        .feature-card:hover { border-left-color: var(--accent); }
-        .feature-card h3 { font-size: 1.4rem; margin-bottom: 12px; letter-spacing: -0.5px; }
-        .feature-card p { color: var(--text-sub); font-size: 1rem; }
+        /* Apple Style Glass Showcase */
+        .showcase-wrapper {
+            width: 100%;
+            max-width: 1200px;
+            padding: 40px;
+            background: var(--glass);
+            border: 1px solid var(--border);
+            border-radius: 30px;
+            backdrop-filter: blur(20px);
+            margin: -100px auto 100px;
+        }
 
-        footer { padding: 80px 10%; text-align: center; border-top: 1px solid #111; color: #444; font-size: 0.8rem; letter-spacing: 1px; }
+        .showcase-wrapper img {
+            width: 100%;
+            border-radius: 15px;
+            display: block;
+            box-shadow: 0 0 80px rgba(0, 113, 227, 0.15);
+        }
+
+        /* Minimalist Grid */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 100px 10%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .card {
+            padding: 60px 40px;
+            background: var(--glass);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            transition: all 0.5s cubic-bezier(0.15, 0, 0.5, 1);
+        }
+
+        .card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--accent);
+            transform: translateY(-10px);
+        }
+
+        .card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .card p {
+            color: #a1a1a6;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        footer {
+            padding: 100px 20px;
+            text-align: center;
+            color: #424245;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+        }
+
+        .nav {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            padding: 30px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo { font-weight: 700; font-size: 1rem; letter-spacing: 0.3em; }
+        .logo span { color: var(--accent); }
     </style>
 </head>
 <body>
 
-    <nav>
-        <div class="logo">Vesta Pacific <span>Tech</span></div>
-        <div style="font-size: 0.8rem; color: var(--text-sub);">San Diego // CA</div>
+    <nav class="nav">
+        <div class="logo">VESTA PACIFIC <span>TECH</span></div>
+        <div style="color: #424245; font-size: 0.7rem;">CALIFORNIA // 2026</div>
     </nav>
 
     <section class="hero">
-        <h1>Smart Screen Solutions for <span>Modern Business</span></h1>
-        <p>Enterprise-grade digital signage ecosystems. High-impact visual management for showrooms, office spaces, and commercial hubs.</p>
-        
-        <div class="showcase">
-            <img src="preview.jpg" alt="Vesta Pacific Display Systems">
-        </div>
+        <h1>Display Perfection.</h1>
+        <p>Intelligent screen ecosystems designed for the modern architectural landscape. Managed from the cloud, delivered with precision.</p>
     </section>
 
-    <section class="features">
-        <div class="feature-card">
-            <h3>Versatile Integration</h3>
-            <p>From architectural window displays to indoor lounge networks and digital menus.</p>
+    <div class="showcase-wrapper">
+        <img src="preview.jpg" alt="Vesta Pacific Intelligence">
+    </div>
+
+    <section class="grid">
+        <div class="card">
+            <h3>Cloud OS</h3>
+            <p>Deploy and manage content globally with sub-second latency.</p>
         </div>
-        <div class="feature-card">
-            <h3>Remote Operations</h3>
-            <p>Full control over your global display network through our secure cloud-based infrastructure.</p>
+        <div class="card">
+            <h3>Any Space</h3>
+            <p>From retail storefronts to corporate command centers.</p>
         </div>
-        <div class="feature-card">
-            <h3>Intelligent Content</h3>
-            <p>Real-time data feeds, automated listings, and dynamic audience engagement tools.</p>
+        <div class="card">
+            <h3>Live Data</h3>
+            <p>Integrated dynamic feeds for real-time audience engagement.</p>
         </div>
     </section>
 
     <footer>
-        &copy; 2026 VESTA PACIFIC TECH // REDEFINING DIGITAL ENVIRONMENTS
+        Designed in San Diego. Vesta Pacific Tech.
     </footer>
 
 </body>
