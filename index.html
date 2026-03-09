@@ -3,122 +3,205 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vesta Pacific Tech | Premium Display Intelligence</title>
+    <title>Vesta Pacific Tech | Digital Signage Excellence in San Diego</title>
     <style>
         :root {
             --accent: #0071e3;
             --accent-glow: rgba(0, 113, 227, 0.4);
-            --text-secondary: #a1a1a6;
+            --bg: #000;
+            --glass: rgba(255, 255, 255, 0.05);
+            --border: rgba(255, 255, 255, 0.1);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
 
         body { 
-            background-color: #000; 
+            background-color: var(--bg); 
             color: #fff; 
-            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", sans-serif; 
-            -webkit-font-smoothing: antialiased;
-            overflow-x: hidden;
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif; 
+            line-height: 1.6;
+        }
+
+        /* --- Navigation --- */
+        nav {
+            position: fixed;
+            top: 0; width: 100%;
+            padding: 20px 8%;
             display: flex;
+            justify-content: space-between;
             align-items: center;
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-logo img { height: 40px; }
+        
+        .nav-links { display: flex; gap: 30px; }
+        .nav-links a { 
+            color: #fff; text-decoration: none; font-size: 0.9rem; 
+            font-weight: 500; transition: 0.3s; opacity: 0.7;
+        }
+        .nav-links a:hover { opacity: 1; color: var(--accent); }
+
+        /* --- Hero Section --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
             justify-content: center;
-            min-height: 100vh;
-        }
-
-        /* Animasyon: Yavaşça Belirme */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .container { 
+            align-items: center;
             text-align: center;
-            padding: 40px 20px;
-            animation: fadeIn 1.2s ease-out;
+            background: radial-gradient(circle at center, #111 0%, #000 100%);
+            padding-top: 80px;
         }
 
-        .logo-img {
-            width: 280px;
-            height: auto;
-            margin-bottom: 40px;
-            filter: drop-shadow(0 0 15px var(--accent-glow));
-            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .logo-img:hover {
-            transform: scale(1.02) translateY(-5px);
-        }
-
-        h1 { 
-            font-size: clamp(2.5rem, 8vw, 4rem);
+        .hero h1 {
+            font-size: clamp(3rem, 10vw, 5rem);
             font-weight: 700;
-            letter-spacing: -0.03em;
-            margin-bottom: 20px;
+            letter-spacing: -0.04em;
             background: linear-gradient(180deg, #fff 0%, #888 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
         }
 
-        p { 
-            color: var(--text-secondary);
-            max-width: 600px; 
-            margin: 0 auto 40px;
-            line-height: 1.6;
-            font-size: 1.2rem;
-            font-weight: 400;
+        .hero p {
+            color: #a1a1a6;
+            max-width: 700px;
+            font-size: 1.4rem;
+            margin-bottom: 40px;
         }
 
-        /* Apple Tarzı Buton */
-        .cta-button {
-            display: inline-block;
-            padding: 12px 30px;
-            background-color: var(--accent);
-            color: #fff;
-            text-decoration: none;
-            border-radius: 980px; /* Tam yuvarlak Apple stili */
-            font-weight: 600;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px var(--accent-glow);
+        /* --- Solutions Grid --- */
+        .section-title {
+            text-align: center;
+            padding: 100px 0 50px;
+            font-size: 2.5rem;
         }
 
-        .cta-button:hover {
-            background-color: #0077ed;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px var(--accent-glow);
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 0 8% 100px;
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
-        .footer {
-            position: absolute;
-            bottom: 40px;
-            font-size: 0.75rem;
-            color: #424245;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            width: 100%;
+        .card {
+            background: var(--glass);
+            border: 1px solid var(--border);
+            padding: 40px;
+            border-radius: 24px;
+            transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card:hover {
+            border-color: var(--accent);
+            transform: translateY(-10px);
+            background: rgba(255,255,255,0.08);
+        }
+
+        .card h3 { color: var(--accent); margin-bottom: 15px; font-size: 1.5rem; }
+        .card p { color: #86868b; }
+
+        /* --- CTA Section --- */
+        .cta-box {
+            background: linear-gradient(145deg, #0071e3, #003366);
+            margin: 50px 8%;
+            padding: 80px;
+            border-radius: 40px;
             text-align: center;
         }
 
-        .location-tag {
-            color: var(--accent);
-            font-weight: 600;
+        .cta-btn {
+            display: inline-block;
+            padding: 18px 45px;
+            background: #fff;
+            color: #000;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 700;
+            margin-top: 30px;
+            transition: 0.3s;
+        }
+        .cta-btn:hover { transform: scale(1.05); box-shadow: 0 0 30px rgba(255,255,255,0.3); }
+
+        footer {
+            padding: 50px 8%;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            color: #424245;
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero h1 { font-size: 3rem; }
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <img src="assets/logo.png" alt="Vesta Pacific Tech Logo" class="logo-img">
-        
-        <h1>Display Perfection.</h1>
-        <p>Future-ready smart screen solutions for San Diego's leading businesses. We engineer high-impact digital signage for showrooms, corporate hubs, and retail environments.</p>
-        
-        <a href="mailto:info@vestapacific.tech" class="cta-button">Get a Consultation</a>
-        
-        <div class="footer">
-            &copy; 2026 VESTA PACIFIC TECH // <span class="location-tag">SAN DIEGO, CA</span>
+    <nav>
+        <div class="nav-logo"><img src="assets/logo.png" alt="Vesta Pacific Tech"></div>
+        <div class="nav-links">
+            <a href="#solutions">Solutions</a>
+            <a href="#software">Cloud OS</a>
+            <a href="#contact">San Diego Presence</a>
+            <a href="mailto:info@vestapacific.tech" style="color: var(--accent); opacity: 1;">Get a Quote</a>
         </div>
-    </div>
+    </nav>
+
+    <section class="hero">
+        <div style="color: var(--accent); font-weight: 600; letter-spacing: 2px; margin-bottom: 10px;">SAN DIEGO'S PREMIER DIGITAL SIGNAGE</div>
+        <h1>Intelligence on Display.</h1>
+        <p>We design, install, and manage high-performance visual networks for forward-thinking brands.</p>
+        <a href="#solutions" class="cta-btn" style="background: var(--accent); color: #fff;">Explore Solutions</a>
+    </section>
+
+    <div id="solutions" class="section-title">End-to-End Solutions</div>
+    
+    <section class="grid">
+        <div class="card">
+            <h3>Retail & Showrooms</h3>
+            <p>Captivate customers with high-brightness window displays and interactive kiosks that drive sales.</p>
+        </div>
+        <div class="card">
+            <h3>Corporate Offices</h3>
+            <p>Modernize your lobby and meeting rooms with sleek internal communication screens and wayfinding.</p>
+        </div>
+        <div class="card">
+            <h3>Hospitality & Dining</h3>
+            <p>Digital menu boards and entertainment screens designed for 24/7 high-impact performance.</p>
+        </div>
+    </section>
+
+    <section id="software" class="cta-box">
+        <h2 style="font-size: 3rem; margin-bottom: 20px;">The Vesta Cloud OS</h2>
+        <p style="font-size: 1.2rem; opacity: 0.9;">Manage one screen or one thousand from anywhere in the world. <br>Real-time updates, health monitoring, and content scheduling at your fingertips.</p>
+        <a href="mailto:info@vestapacific.tech" class="cta-btn">Request a Demo</a>
+    </section>
+
+    <section class="grid" style="padding-top: 50px;">
+        <div class="card" style="text-align: center;">
+            <h4 style="margin-bottom: 10px;">Strategic Location</h4>
+            <p>Headquartered in San Diego, CA. Serving the Southern California tech corridor.</p>
+        </div>
+        <div class="card" style="text-align: center;">
+            <h4 style="margin-bottom: 10px;">Expert Installation</h4>
+            <p>Certified technicians ensuring seamless hardware integration and aesthetic perfection.</p>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div>&copy; 2026 VESTA PACIFIC TECH. All Rights Reserved.</div>
+        <div>PRECISION DIGITAL ENVIRONMENTS // SAN DIEGO, CA</div>
+    </footer>
 
 </body>
 </html>
