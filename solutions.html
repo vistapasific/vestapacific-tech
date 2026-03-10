@@ -4,34 +4,158 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Solutions | Vesta Pacific Tech</title>
-    <link rel="stylesheet" href="style.css"> <style>
-        /* Ana sayfadaki stillerin aynısını buraya da koyabilir veya ortak bir CSS dosyası yapabilirsin */
-        body { background: #000; color: #fff; font-family: sans-serif; padding-top: 100px; text-align: center; }
-        nav { position: fixed; top: 0; width: 100%; padding: 20px; background: rgba(0,0,0,0.9); display: flex; justify-content: space-around; }
-        .content { padding: 50px; }
-        .solution-box { border: 1px solid #333; padding: 20px; margin: 20px; border-radius: 15px; background: #111; }
+    <style>
+        :root {
+            --accent: #0071e3;
+            --bg: #000;
+            --glass: rgba(255, 255, 255, 0.05);
+            --border: rgba(255, 255, 255, 0.1);
+            --text-gray: #86868b;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            background-color: var(--bg); 
+            color: #fff; 
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif; 
+            line-height: 1.6;
+        }
+
+        /* --- Navigation (Artık Tüm Sayfalarda Standart) --- */
+        nav {
+            position: fixed;
+            top: 0; width: 100%;
+            padding: 15px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0,0,0,0.85);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-logo img { height: 40px; transition: 0.3s; }
+        
+        .nav-links { display: flex; gap: 25px; align-items: center; }
+        .nav-links a { 
+            color: #fff; text-decoration: none; font-size: 0.9rem; 
+            opacity: 0.8; transition: 0.3s;
+        }
+        .nav-links a:hover { opacity: 1; color: var(--accent); }
+
+        .btn-quote {
+            background: var(--accent);
+            padding: 10px 22px;
+            border-radius: 20px;
+            font-weight: 600;
+            text-decoration: none;
+            color: #fff;
+            transition: 0.3s;
+        }
+        .btn-quote:hover { transform: scale(1.05); }
+
+        /* --- Content --- */
+        .solutions-header {
+            padding: 150px 8% 60px;
+            text-align: center;
+            background: radial-gradient(circle at top, #111 0%, #000 100%);
+        }
+
+        .solutions-header h1 { font-size: 3.5rem; margin-bottom: 20px; font-weight: 700; }
+        .solutions-header p { color: var(--text-gray); max-width: 800px; margin: 0 auto; font-size: 1.2rem; }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            padding: 60px 8%;
+        }
+
+        .solution-card {
+            background: var(--glass);
+            padding: 50px;
+            border-radius: 30px;
+            border: 1px solid var(--border);
+            transition: 0.4s;
+        }
+
+        .solution-card:hover { border-color: var(--accent); transform: translateY(-5px); }
+        .solution-card h3 { color: var(--accent); margin-bottom: 20px; font-size: 1.8rem; }
+        .solution-card p { color: var(--text-gray); margin-bottom: 20px; }
+        
+        .list-items { list-style: none; color: #fff; font-size: 0.9rem; }
+        .list-items li { margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+        .list-items li::before { content: "•"; color: var(--accent); font-weight: bold; }
+
+        footer { padding: 60px 8%; text-align: center; border-top: 1px solid #111; color: #444; font-size: 0.8rem; }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .solutions-header h1 { font-size: 2.5rem; }
+        }
     </style>
 </head>
 <body>
+
     <nav>
-        <a href="index.html" style="color: #0071e3; text-decoration: none; font-weight: bold;">VESTA PACIFIC</a>
-        <a href="solutions.html" style="color: #fff; text-decoration: none;">Solutions</a>
-        <a href="software.html" style="color: #fff; text-decoration: none;">Cloud OS</a>
-        <a href="contact.html" style="color: #fff; text-decoration: none;">Contact</a>
+        <a href="index.html" class="nav-logo">
+            <img src="assets/logo.png" alt="Vesta Pacific Tech">
+        </a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="solutions.html" style="color: var(--accent); opacity: 1;">Solutions</a>
+            <a href="software.html">Cloud OS</a>
+            <a href="about.html">About</a>
+            <a href="contact.html" class="btn-quote">Get a Quote</a>
+        </div>
     </nav>
 
-    <div class="content">
-        <h1 style="font-size: 3rem;">Our Solutions</h1>
-        <p style="color: #888;">Tailored digital signage for San Diego's business ecosystem.</p>
-        
-        <div class="solution-box">
-            <h2>Interactive Kiosks</h2>
-            <p>Smart touch-points for malls, airports, and corporate lobbies.</p>
+    <header class="solutions-header">
+        <h1>Industry Solutions</h1>
+        <p>Custom-engineered digital experiences for San Diego's leading commercial sectors.</p>
+    </header>
+
+    <div class="grid-container">
+        <div class="solution-card">
+            <h3>Retail & Showrooms</h3>
+            <p>High-impact visual tools designed to increase dwell time and drive conversion rates.</p>
+            <ul class="list-items">
+                <li>High-Brightness Window Displays</li>
+                <li>Interactive Product Catalogues</li>
+                <li>Digital Mannequins & Styling Walls</li>
+            </ul>
         </div>
-        <div class="solution-box">
-            <h2>Video Walls</h2>
-            <p>High-definition LED arrays for maximum brand impact.</p>
+
+        <div class="solution-card">
+            <h3>Corporate Offices</h3>
+            <p>Modernize your workspace with seamless internal communication and smart facility management.</p>
+            <ul class="list-items">
+                <li>Reception Video Walls</li>
+                <li>Smart Room Booking Systems</li>
+                <li>Internal KPI Dashboards</li>
+            </ul>
+        </div>
+
+        <div class="solution-card">
+            <h3>Hospitality & Food</h3>
+            <p>Dynamic content delivery that enhances the guest experience and streamlines operations.</p>
+            <ul class="list-items">
+                <li>Digital Menu Boards</li>
+                <li>Wayfinding Kiosks</li>
+                <li>Guest Entertainment Systems</li>
+            </ul>
         </div>
     </div>
+
+    <section style="text-align: center; padding: 100px 8%;">
+        <h2 style="font-size: 2.5rem; margin-bottom: 30px;">Ready to Start?</h2>
+        <a href="contact.html" class="btn-quote" style="padding: 20px 60px; font-size: 1.1rem;">Contact Our Design Team</a>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 VESTA PACIFIC TECH LLC. ALL RIGHTS RESERVED.</p>
+    </footer>
+
 </body>
 </html>
