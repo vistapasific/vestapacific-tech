@@ -1,47 +1,195 @@
-<div class="project-grid">
-    
-    <div class="project-card">
-        <div class="project-img">
-            <img src="assets/unnamed (5).jpg" alt="Restaurant Digital Menu">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Industry Solutions | Vesta Pacific Tech</title>
+    <style>
+        :root {
+            --accent: #0071e3;
+            --bg: #000;
+            --glass: rgba(255, 255, 255, 0.05);
+            --border: rgba(255, 255, 255, 0.1);
+            --text-gray: #86868b;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            background-color: var(--bg); 
+            color: #fff; 
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+            line-height: 1.6;
+        }
+
+        /* --- Navigation --- */
+        nav {
+            position: fixed;
+            top: 0; width: 100%;
+            padding: 15px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0,0,0,0.85);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border);
+        }
+        .nav-logo img { height: 35px; }
+        .nav-links a { color: #fff; text-decoration: none; font-size: 0.9rem; margin-left: 25px; opacity: 0.8; transition: 0.3s; }
+        .nav-links a:hover { opacity: 1; color: var(--accent); }
+
+        /* --- Header --- */
+        .solutions-header {
+            padding: 180px 8% 60px;
+            text-align: center;
+            background: radial-gradient(circle at top, #111 0%, #000 100%);
+        }
+        .solutions-header h1 { font-size: 3.5rem; letter-spacing: -0.05em; margin-bottom: 20px; }
+        .solutions-header p { color: var(--text-gray); max-width: 700px; margin: 0 auto; font-size: 1.2rem; }
+
+        /* --- Solutions Grid --- */
+        .project-grid {
+            padding: 60px 8% 120px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+        }
+
+        .project-card {
+            background: var(--glass);
+            border-radius: 25px;
+            border: 1px solid var(--border);
+            overflow: hidden;
+            transition: 0.4s;
+        }
+        .project-card:hover { transform: translateY(-10px); border-color: var(--accent); }
+
+        .project-img {
+            height: 300px;
+            overflow: hidden;
+        }
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+        .project-card:hover .project-img img { transform: scale(1.05); }
+
+        .project-info { padding: 30px; }
+        .tech-tag { 
+            color: var(--accent); 
+            font-size: 0.75rem; 
+            font-weight: 700; 
+            text-transform: uppercase; 
+            letter-spacing: 1px;
+            display: block;
+            margin-bottom: 10px;
+        }
+        .project-info h3 { font-size: 1.6rem; margin-bottom: 15px; }
+        .project-info p { color: var(--text-gray); font-size: 1rem; }
+
+        footer { padding: 60px; text-align: center; border-top: 1px solid var(--border); color: #444; font-size: 0.8rem; }
+
+        @media (max-width: 768px) {
+            .project-grid { grid-template-columns: 1fr; }
+            .solutions-header h1 { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="nav-logo">
+            <img src="assets/logo.png" alt="Vesta Pacific">
+        </a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="software.html">Cloud OS</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
         </div>
-        <div class="project-info">
-            <span class="tech-tag">Hospitality</span>
-            <h3>Dynamic Menu Boards</h3>
-            <p>Real-time menu updates, Happy Hour promos, and San Diego local news tickers.</p>
+    </nav>
+
+    <header class="solutions-header">
+        <span style="color: var(--accent); font-weight: 600; letter-spacing: 2px;">SECTORAL EXPERTISE</span>
+        <h1>San Diego's Digital Canvas.</h1>
+        <p>From La Jolla retail boutiques to Downtown tech hubs, we deploy Xibo-powered visual networks that engage and inform.</p>
+    </header>
+
+    <div class="project-grid">
+        
+        <div class="project-card">
+            <div class="project-img">
+                <img src="assets/restaurant-pro.jpg" alt="Restaurant Menu Boards">
+            </div>
+            <div class="project-info">
+                <span class="tech-tag">Hospitality</span>
+                <h3>Dynamic Menu Boards</h3>
+                <p>Real-time menu updates, automated Happy Hour promotions, and integrated local news tickers for San Diego's dining scene.</p>
+            </div>
         </div>
+
+        <div class="project-card">
+            <div class="project-img">
+                <img src="assets/real-estate-pro.jpg" alt="Luxury Real Estate">
+            </div>
+            <div class="project-info">
+                <span class="tech-tag">Real Estate</span>
+                <h3>High-End Property Showcases</h3>
+                <p>Ultra-bright window displays designed to showcase luxury listings in coastal San Diego with live weather and market data.</p>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div class="project-img">
+                <img src="assets/wellness-pro.jpg" alt="Medical Displays">
+            </div>
+            <div class="project-info">
+                <span class="tech-tag">Healthcare & Wellness</span>
+                <h3>Patient Information Hubs</h3>
+                <p>Streamlined wayfinding and health tip displays for modern clinics, improving patient experience and wait-time perception.</p>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div class="project-img">
+                <img src="assets/corporate-pro.jpg" alt="Corporate Lobby">
+            </div>
+            <div class="project-info">
+                <span class="tech-tag">Enterprise</span>
+                <h3>Corporate Communication</h3>
+                <p>Large-scale video walls for San Diego tech headquarters, featuring global data visualizations and internal greetings.</p>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div class="project-img">
+                <img src="assets/unnamed.jpg" alt="Retail Signage">
+            </div>
+            <div class="project-info">
+                <span class="tech-tag">Retail & Fashion</span>
+                <h3>Interactive Storefronts</h3>
+                <p>High-impact digital signage for luxury retail, synchronized across multiple locations via Vesta Cloud OS.</p>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div class="project-img">
+                <img src="assets/unnamed (1).jpg" alt="Experience Center">
+            </div>
+            <div class="project-info">
+                <span class="tech-tag">Hospitality Lobbies</span>
+                <h3>Immersive Concierge</h3>
+                <p>Digital insights into local charms and event tracking for premium hotel lobbies in Southern California.</p>
+            </div>
+        </div>
+
     </div>
 
-    <div class="project-card">
-        <div class="project-img">
-            <img src="assets/unnamed (4).jpg" alt="Real Estate Display">
-        </div>
-        <div class="project-info">
-            <span class="tech-tag">Real Estate</span>
-            <h3>Property Showcase</h3>
-            <p>High-end property listings in La Jolla and Downtown SD with live weather integration.</p>
-        </div>
-    </div>
+    <footer>
+        &copy; 2026 VESTA PACIFIC TECH LLC. ALL RIGHTS RESERVED. SAN DIEGO, CA.
+    </footer>
 
-    <div class="project-card">
-        <div class="project-img">
-            <img src="assets/unnamed (2).jpg" alt="Wellness Center Signage">
-        </div>
-        <div class="project-info">
-            <span class="tech-tag">Medical & Wellness</span>
-            <h3>Patient Information Hubs</h3>
-            <p>Wayfinding, daily health tips, and appointment scheduling for SD clinics.</p>
-        </div>
-    </div>
-
-    <div class="project-card">
-        <div class="project-img">
-            <img src="assets/unnamed (3).jpg" alt="Corporate Lobby Wall">
-        </div>
-        <div class="project-info">
-            <span class="tech-tag">Enterprise</span>
-            <h3>Corporate Communication</h3>
-            <p>Large scale video walls for tech hubs, featuring global data and local SD greetings.</p>
-        </div>
-    </div>
-
-</div>
+</body>
+</html>
