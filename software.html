@@ -1,21 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8"><title>Vesta Cloud OS</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vesta Cloud OS | Intelligence Management</title>
     <style>
-        body { background: #000; color: #fff; font-family: sans-serif; padding-top: 80px; text-align: center; }
-        .feature-list { display: flex; justify-content: center; gap: 40px; margin-top: 50px; flex-wrap: wrap; }
-        .feature { width: 300px; padding: 40px; background: linear-gradient(145deg, #111, #000); border-radius: 30px; border: 1px solid #0071e3; }
-        h1 { color: #0071e3; font-size: 3rem; }
+        :root {
+            --accent: #0071e3;
+            --bg: #000;
+            --glass: rgba(255, 255, 255, 0.05);
+            --border: rgba(255, 255, 255, 0.1);
+            --text-gray: #86868b;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            background-color: var(--bg); 
+            color: #fff; 
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif; 
+            line-height: 1.6;
+        }
+
+        /* --- Navigation --- */
+        nav {
+            position: fixed;
+            top: 0; width: 100%;
+            padding: 15px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0,0,0,0.85);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-logo img { height: 40px; }
+        
+        .nav-links { display: flex; gap: 25px; align-items: center; }
+        .nav-links a { 
+            color: #fff; text-decoration: none; font-size: 0.9rem; 
+            opacity: 0.8; transition: 0.3s;
+        }
+        .nav-links a:hover { opacity: 1; color: var(--accent); }
+
+        .btn-home {
+            border: 1px solid var(--accent);
+            padding: 8px 18px;
+            border-radius: 20px;
+            color: var(--accent) !important;
+            text-decoration: none;
+        }
+
+        /* --- Content --- */
+        .content-header {
+            padding: 150px 8% 60px;
+            text-align: center;
+            background: radial-gradient(circle at center, #111 0%, #000 100%);
+        }
+
+        .content-header h1 { font-size: 3.5rem; margin-bottom: 20px; font-weight: 700; }
+        .content-header p { color: var(--text-gray); max-width: 700px; margin: 0 auto; font-size: 1.2rem; }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 60px 8%;
+        }
+
+        .feature-card {
+            background: var(--glass);
+            padding: 40px;
+            border-radius: 25px;
+            border: 1px solid var(--border);
+            transition: 0.3s;
+        }
+
+        .feature-card:hover { border-color: var(--accent); transform: translateY(-5px); }
+        .feature-card h3 { color: var(--accent); margin-bottom: 15px; font-size: 1.5rem; }
+        .feature-card p { color: var(--text-gray); font-size: 1rem; }
+
+        footer { padding: 60px 8%; text-align: center; border-top: 1px solid #111; color: #444; font-size: 0.8rem; }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .content-header h1 { font-size: 2.5rem; }
+        }
     </style>
 </head>
 <body>
-    <h1>Vesta Cloud OS</h1>
-    <p>Manage your entire global screen network from a single San Diego dashboard.</p>
-    <div class="feature-list">
-        <div class="feature"><h3>Real-time Sync</h3><p>Push updates to 1,000+ screens in under 5 seconds.</p></div>
-        <div class="feature"><h3>AI Scheduling</h3><p>Display content based on time, weather, or customer demographics.</p></div>
-        <div class="feature"><h3>Health Monitoring</h3><p>Instant alerts if any screen goes offline.</p></div>
+
+    <nav>
+        <a href="index.html" class="nav-logo">
+            <img src="assets/logo.png" alt="Vesta Pacific Tech">
+        </a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="solutions.html">Solutions</a>
+            <a href="about.html">About</a>
+            <a href="contact.html" class="btn-home">Get a Quote</a>
+        </div>
+    </nav>
+
+    <header class="content-header">
+        <h1>Vesta Cloud OS</h1>
+        <p>A unified operating system designed to manage large-scale digital signage networks with precision and security.</p>
+    </header>
+
+    <div class="feature-grid">
+        <div class="feature-card">
+            <h3>Global Sync</h3>
+            <p>Deploy high-resolution content to one or one thousand screens instantly. Our CDN ensures zero-lag updates globally.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Proactive Health</h3>
+            <p>Real-time hardware monitoring. Receive instant alerts before a screen goes dark, ensuring 99.9% uptime for your brand.</p>
+        </div>
+        <div class="feature-card">
+            <h3>AI Analytics</h3>
+            <p>Integrated audience measurement. Track footfall, dwell time, and demographics to optimize your content strategy.</p>
+        </div>
     </div>
+
+    <section style="text-align: center; padding: 60px 8%;">
+        <h2 style="margin-bottom: 20px;">Ready to take control?</h2>
+        <a href="contact.html" style="background: var(--accent); color: #fff; padding: 15px 40px; border-radius: 30px; text-decoration: none; font-weight: 600;">Request a Demo</a>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 VESTA PACIFIC TECH LLC. ALL RIGHTS RESERVED.</p>
+    </footer>
+
 </body>
 </html>
