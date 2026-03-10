@@ -39,7 +39,8 @@
             border-bottom: 1px solid var(--border);
         }
 
-        .nav-logo img { height: 40px; }
+        .nav-logo img { height: 40px; transition: 0.3s; }
+        .nav-logo img:hover { transform: scale(1.05); }
         
         .nav-links { display: flex; gap: 25px; align-items: center; }
         .nav-links a { 
@@ -59,7 +60,7 @@
         }
         .btn-quote:hover { transform: scale(1.05); box-shadow: 0 0 20px var(--accent-glow); }
 
-        /* --- Hero --- */
+        /* --- Hero Section --- */
         .hero {
             height: 100vh;
             display: flex;
@@ -71,15 +72,15 @@
             background: radial-gradient(circle at center, #111 0%, #000 100%);
         }
 
-        .hero h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); letter-spacing: -0.05em; margin-bottom: 20px; }
+        .hero h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); letter-spacing: -0.05em; margin-bottom: 20px; font-weight: 700; }
         .hero p { color: var(--text-gray); max-width: 650px; font-size: 1.3rem; margin-bottom: 40px; }
 
-        /* --- Sections --- */
+        /* --- Section Styling --- */
         section { padding: 120px 8%; border-bottom: 1px solid #111; }
-        .section-tag { color: var(--accent); font-size: 0.9rem; font-weight: 600; letter-spacing: 2px; margin-bottom: 10px; display: block; }
-        .section-title { font-size: 2.8rem; margin-bottom: 60px; }
+        .section-tag { color: var(--accent); font-size: 0.9rem; font-weight: 600; letter-spacing: 2px; margin-bottom: 10px; display: block; text-transform: uppercase; }
+        .section-title { font-size: 2.8rem; margin-bottom: 60px; font-weight: 700; }
 
-        /* --- Services --- */
+        /* --- Services Grid --- */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -92,10 +93,14 @@
             border-radius: 30px;
             border: 1px solid var(--border);
             transition: 0.4s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
         }
 
-        .card:hover { border-color: var(--accent); background: rgba(255,255,255,0.08); }
+        .card:hover { border-color: var(--accent); background: rgba(255,255,255,0.08); transform: translateY(-5px); }
         .card h3 { margin-bottom: 15px; font-size: 1.6rem; color: var(--accent); }
+        .card p { color: var(--text-gray); }
 
         /* --- Contact Form --- */
         .contact-container {
@@ -112,115 +117,113 @@
         .form-group label { display: block; margin-bottom: 8px; font-size: 0.9rem; color: var(--text-gray); }
         .form-group input, .form-group textarea {
             width: 100%; padding: 15px; background: #111; border: 1px solid #333;
-            border-radius: 12px; color: #fff; font-family: inherit;
+            border-radius: 12px; color: #fff; font-family: inherit; font-size: 1rem;
         }
+        .form-group input:focus, .form-group textarea:focus { outline: 1px solid var(--accent); border-color: var(--accent); }
 
         /* --- Footer --- */
-        footer { padding: 60px 8%; background: #050505; text-align: center; color: #444; border-top: 1px solid #111; }
-
-        /* --- Mobile Toggle --- */
-        .menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; }
+        footer { padding: 80px 8% 40px; background: #050505; text-align: center; color: #444; border-top: 1px solid #111; }
+        .footer-links { margin-bottom: 30px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+        .footer-links a { color: #888; text-decoration: none; font-size: 0.8rem; transition: 0.3s; }
+        .footer-links a:hover { color: #fff; }
 
         @media (max-width: 768px) {
-            .nav-links { display: none; } /* Basitlik için mobilde şimdilik gizli */
-            .contact-container { grid-template-columns: 1fr; }
+            nav { padding: 15px 5%; }
+            .nav-links { display: none; } 
+            .contact-container { grid-template-columns: 1fr; padding: 30px; }
             .hero h1 { font-size: 3rem; }
+            section { padding: 80px 5%; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <a href="#" class="nav-logo">
-            <img src="assets/logo.png" alt="Vesta Pacific Tech">
+        <a href="index.html" class="nav-logo">
+            <img src="assets/logo.png" alt="Vesta Pacific Tech Logo">
         </a>
         <div class="nav-links">
-            <a href="#solutions">Solutions</a>
-            <a href="#technology">Cloud OS</a>
-            <a href="#about">About</a>
-            <a href="#contact" class="btn-quote">Get a Quote</a>
+            <a href="solutions.html">Solutions</a>
+            <a href="software.html">Cloud OS</a>
+            <a href="about.html">About</a>
+            <a href="contact.html" class="btn-quote">Get a Quote</a>
         </div>
     </nav>
 
     <section class="hero">
-        <span class="section-tag">SAN DIEGO // CA</span>
+        <span class="section-tag">San Diego, CA // EST 2026</span>
         <h1>Intelligence on Display.</h1>
-        <p>Premium digital signage solutions engineered for the Southern California tech corridor.</p>
-        <div style="display: flex; gap: 20px;">
-            <a href="#solutions" class="btn-quote" style="padding: 15px 40px;">Explore Solutions</a>
-            <a href="#contact" style="color: #fff; text-decoration: none; padding: 15px 40px; border: 1px solid #333; border-radius: 30px;">Speak to an Expert</a>
+        <p>Designing, deploying, and managing high-performance visual networks for Southern California's premier brands.</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; justify-content: center;">
+            <a href="solutions.html" class="btn-quote" style="padding: 15px 40px;">Explore Solutions</a>
+            <a href="contact.html" style="color: #fff; text-decoration: none; padding: 15px 40px; border: 1px solid #333; border-radius: 30px; font-weight: 500; transition: 0.3s;">Speak to an Expert</a>
         </div>
     </section>
 
     <section id="solutions">
-        <span class="section-tag">WHAT WE DO</span>
+        <span class="section-tag">Expertise</span>
         <h2 class="section-title">Visual Excellence</h2>
         <div class="services-grid">
-            <div class="card">
-                <h3>Retail & Luxury</h3>
+            <a href="solutions.html" class="card">
+                <h3>Retail & Showrooms</h3>
                 <p>Captivate high-end clientele with ultra-bright window displays and interactive concierge kiosks.</p>
-            </div>
-            <div class="card">
-                <h3>Enterprise Hubs</h3>
-                <p>Seamless LED video walls and smart boardroom integration for San Diego's corporate headquarters.</p>
-            </div>
-            <div class="card">
+            </a>
+            <a href="solutions.html" class="card">
+                <h3>Corporate Identity</h3>
+                <p>Seamless LED video walls for lobbies and smart room-booking displays for tech headquarters.</p>
+            </a>
+            <a href="solutions.html" class="card">
                 <h3>Hospitality</h3>
                 <p>Dynamic menu boards and guest-facing information screens for hotels and premium dining.</p>
-            </div>
+            </a>
         </div>
     </section>
 
-    <section id="technology" style="background: #050505;">
-        <span class="section-tag">THE PLATFORM</span>
+    <section id="software" style="background: #050505;">
+        <span class="section-tag">The Platform</span>
         <h2 class="section-title">Vesta Cloud OS</h2>
-        <div class="services-grid">
-            <div class="card">
-                <h4>Remote Control</h4>
-                <p>Update content across thousands of screens in seconds from our secure dashboard.</p>
-            </div>
-            <div class="card">
-                <h4>AI Analytics</h4>
-                <p>Understand your audience with real-time viewer engagement and demographic data.</p>
-            </div>
-            <div class="card">
-                <h4>24/7 Monitoring</h4>
-                <p>Automated health checks and instant alerts ensuring 100% uptime for your hardware.</p>
-            </div>
-        </div>
+        <p style="color: var(--text-gray); max-width: 800px; margin-bottom: 40px; font-size: 1.15rem;">Our proprietary CMS allows you to push content, monitor hardware health, and analyze viewer engagement from a single dashboard—anywhere in the world.</p>
+        <a href="software.html" class="btn-quote" style="background: transparent; border: 1px solid var(--accent);">Learn About the Software</a>
     </section>
 
     <section id="contact">
-        <span class="section-tag">CONTACT US</span>
+        <span class="section-tag">Contact Us</span>
         <h2 class="section-title">Ready to Modernize?</h2>
         <div class="contact-container">
-            <div>
-                <h3>San Diego HQ</h3>
-                <p style="color: var(--text-gray); margin: 20px 0;">Consult with our specialists for a tailored digital environment.</p>
-                <p><strong>Email:</strong> info@vestapacific.tech</p>
-                <p><strong>Region:</strong> Southern California</p>
+            <div style="text-align: left;">
+                <h3 style="font-size: 1.8rem; margin-bottom: 20px; color: var(--accent);">San Diego HQ</h3>
+                <p style="color: var(--text-gray); margin-bottom: 25px;">Consult with our visual specialists to design a tailored digital environment for your commercial space.</p>
+                <p style="margin-bottom: 10px;"><strong>Region:</strong> Southern California / SDCA</p>
+                <p style="margin-bottom: 10px;"><strong>Email:</strong> <a href="mailto:info@vestapacific.tech" style="color: var(--accent); text-decoration: none;">info@vestapacific.tech</a></p>
+                <p><strong>Support:</strong> 24/7 System Health Monitoring</p>
             </div>
             <form action="mailto:info@vestapacific.tech" method="post" enctype="text/plain">
                 <div class="form-group">
                     <label>Full Name</label>
-                    <input type="text" placeholder="John Doe" required>
+                    <input type="text" name="name" placeholder="John Doe" required>
                 </div>
                 <div class="form-group">
                     <label>Business Email</label>
-                    <input type="email" placeholder="john@company.com" required>
+                    <input type="email" name="email" placeholder="email@company.com" required>
                 </div>
                 <div class="form-group">
-                    <label>Inquiry Details</label>
-                    <textarea rows="4" placeholder="How can we help?"></textarea>
+                    <label>Project Details</label>
+                    <textarea name="message" rows="4" placeholder="Tell us about your space..."></textarea>
                 </div>
-                <button type="submit" class="btn-quote" style="width: 100%; border: none; cursor: pointer;">Send Inquiry</button>
+                <button type="submit" class="btn-quote" style="width: 100%; border: none; cursor: pointer; padding: 15px;">Send Inquiry</button>
             </form>
         </div>
     </section>
 
     <footer>
+        <div class="footer-links">
+            <a href="about.html">About Us</a>
+            <a href="solutions.html">Solutions</a>
+            <a href="software.html">Cloud OS</a>
+            <a href="contact.html">Contact</a>
+        </div>
         <p>&copy; 2026 VESTA PACIFIC TECH LLC. ALL RIGHTS RESERVED.</p>
-        <p style="margin-top: 10px; font-size: 0.6rem; letter-spacing: 2px;">PRECISION DIGITAL ENVIRONMENTS // SDCA</p>
+        <p style="margin-top: 10px; font-size: 0.65rem; letter-spacing: 2px; color: #333;">PRECISION DIGITAL ENVIRONMENTS // SAN DIEGO, CA</p>
     </footer>
 
 </body>
