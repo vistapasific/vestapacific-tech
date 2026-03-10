@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vesta Pacific Tech | Digital Signage Excellence in San Diego</title>
+    <title>Vesta Pacific Tech | Enterprise Digital Signage San Diego</title>
     <style>
         :root {
             --accent: #0071e3;
@@ -11,6 +11,7 @@
             --bg: #000;
             --glass: rgba(255, 255, 255, 0.05);
             --border: rgba(255, 255, 255, 0.1);
+            --text-gray: #86868b;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -20,14 +21,15 @@
             background-color: var(--bg); 
             color: #fff; 
             font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif; 
-            line-height: 1.6;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
         }
 
         /* --- Navigation --- */
         nav {
             position: fixed;
             top: 0; width: 100%;
-            padding: 20px 8%;
+            padding: 15px 8%;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -37,16 +39,25 @@
             border-bottom: 1px solid var(--border);
         }
 
-        .nav-logo img { height: 40px; }
+        .nav-logo img { height: 35px; transition: 0.3s; }
+        .nav-logo img:hover { transform: scale(1.05); }
         
-        .nav-links { display: flex; gap: 30px; }
+        .nav-links { display: flex; gap: 25px; align-items: center; }
         .nav-links a { 
-            color: #fff; text-decoration: none; font-size: 0.9rem; 
-            font-weight: 500; transition: 0.3s; opacity: 0.7;
+            color: #fff; text-decoration: none; font-size: 0.85rem; 
+            font-weight: 400; transition: 0.3s; opacity: 0.8;
         }
         .nav-links a:hover { opacity: 1; color: var(--accent); }
 
-        /* --- Hero Section --- */
+        .btn-quote {
+            background: var(--accent);
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-weight: 600 !important;
+            opacity: 1 !important;
+        }
+
+        /* --- Hero --- */
         .hero {
             height: 100vh;
             display: flex;
@@ -54,153 +65,182 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            background: radial-gradient(circle at center, #111 0%, #000 100%);
-            padding-top: 80px;
+            padding: 0 10%;
+            background: radial-gradient(circle at 50% 50%, #111 0%, #000 100%);
         }
 
-        .hero h1 {
-            font-size: clamp(3rem, 10vw, 5rem);
-            font-weight: 700;
-            letter-spacing: -0.04em;
-            background: linear-gradient(180deg, #fff 0%, #888 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 20px;
-        }
+        .hero span { color: var(--accent); font-weight: 600; letter-spacing: 3px; font-size: 0.8rem; margin-bottom: 15px; }
+        .hero h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); letter-spacing: -0.05em; margin-bottom: 20px; line-height: 1.1; }
+        .hero p { color: var(--text-gray); max-width: 600px; font-size: 1.25rem; margin-bottom: 35px; }
 
-        .hero p {
-            color: #a1a1a6;
-            max-width: 700px;
-            font-size: 1.4rem;
-            margin-bottom: 40px;
-        }
+        /* --- Sections --- */
+        section { padding: 100px 8%; border-bottom: 1px solid #111; }
+        .section-tag { color: var(--accent); font-size: 0.9rem; font-weight: 600; margin-bottom: 10px; display: block; }
+        .section-title { font-size: 2.5rem; margin-bottom: 50px; letter-spacing: -0.03em; }
 
-        /* --- Solutions Grid --- */
-        .section-title {
-            text-align: center;
-            padding: 100px 0 50px;
-            font-size: 2.5rem;
-        }
-
-        .grid {
+        /* --- Grid System --- */
+        .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            padding: 0 8% 100px;
-            max-width: 1400px;
-            margin: 0 auto;
+            gap: 25px;
         }
 
         .card {
             background: var(--glass);
-            border: 1px solid var(--border);
             padding: 40px;
-            border-radius: 24px;
-            transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 28px;
+            border: 1px solid var(--border);
+            transition: 0.4s;
         }
 
-        .card:hover {
-            border-color: var(--accent);
-            transform: translateY(-10px);
-            background: rgba(255,255,255,0.08);
-        }
+        .card:hover { border-color: var(--accent); transform: translateY(-5px); background: rgba(255,255,255,0.07); }
+        .card h3 { margin-bottom: 15px; font-size: 1.4rem; }
+        .card p { color: var(--text-gray); font-size: 0.95rem; }
 
-        .card h3 { color: var(--accent); margin-bottom: 15px; font-size: 1.5rem; }
-        .card p { color: #86868b; }
-
-        /* --- CTA Section --- */
-        .cta-box {
-            background: linear-gradient(145deg, #0071e3, #003366);
-            margin: 50px 8%;
-            padding: 80px;
-            border-radius: 40px;
-            text-align: center;
-        }
-
-        .cta-btn {
-            display: inline-block;
-            padding: 18px 45px;
-            background: #fff;
-            color: #000;
-            text-decoration: none;
-            border-radius: 30px;
-            font-weight: 700;
-            margin-top: 30px;
-            transition: 0.3s;
-        }
-        .cta-btn:hover { transform: scale(1.05); box-shadow: 0 0 30px rgba(255,255,255,0.3); }
-
-        footer {
-            padding: 50px 8%;
-            border-top: 1px solid var(--border);
+        /* --- Why Us / Stats --- */
+        .stats {
             display: flex;
             justify-content: space-between;
-            color: #424245;
-            font-size: 0.8rem;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-top: 50px;
         }
 
+        .stat-item h2 { font-size: 3rem; color: var(--accent); }
+        .stat-item p { color: var(--text-gray); text-transform: uppercase; font-size: 0.7rem; letter-spacing: 2px; }
+
+        /* --- Footer --- */
+        footer {
+            padding: 80px 8% 40px;
+            background: #050505;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 50px;
+            margin-bottom: 60px;
+        }
+
+        .footer-col h4 { margin-bottom: 20px; font-size: 0.9rem; color: #fff; }
+        .footer-col ul { list-style: none; }
+        .footer-col ul li { margin-bottom: 10px; }
+        .footer-col ul li a { color: var(--text-gray); text-decoration: none; font-size: 0.85rem; transition: 0.3s; }
+        .footer-col ul li a:hover { color: #fff; }
+
+        .copyright {
+            border-top: 1px solid #111;
+            padding-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            color: #444;
+            font-size: 0.75rem;
+        }
+
+        /* --- Mobile --- */
         @media (max-width: 768px) {
             .nav-links { display: none; }
-            .hero h1 { font-size: 3rem; }
+            section { padding: 60px 5%; }
+            .stats { flex-direction: column; text-align: center; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="nav-logo"><img src="assets/logo.png" alt="Vesta Pacific Tech"></div>
+        <a href="#" class="nav-logo"><img src="assets/logo.png" alt="Vesta Pacific Tech"></a>
         <div class="nav-links">
             <a href="#solutions">Solutions</a>
             <a href="#software">Cloud OS</a>
-            <a href="#contact">San Diego Presence</a>
-            <a href="mailto:info@vestapacific.tech" style="color: var(--accent); opacity: 1;">Get a Quote</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+            <a href="mailto:info@vestapacific.tech" class="btn-quote">Get a Quote</a>
         </div>
     </nav>
 
     <section class="hero">
-        <div style="color: var(--accent); font-weight: 600; letter-spacing: 2px; margin-bottom: 10px;">SAN DIEGO'S PREMIER DIGITAL SIGNAGE</div>
-        <h1>Intelligence on Display.</h1>
-        <p>We design, install, and manage high-performance visual networks for forward-thinking brands.</p>
-        <a href="#solutions" class="cta-btn" style="background: var(--accent); color: #fff;">Explore Solutions</a>
-    </section>
-
-    <div id="solutions" class="section-title">End-to-End Solutions</div>
-    
-    <section class="grid">
-        <div class="card">
-            <h3>Retail & Showrooms</h3>
-            <p>Captivate customers with high-brightness window displays and interactive kiosks that drive sales.</p>
-        </div>
-        <div class="card">
-            <h3>Corporate Offices</h3>
-            <p>Modernize your lobby and meeting rooms with sleek internal communication screens and wayfinding.</p>
-        </div>
-        <div class="card">
-            <h3>Hospitality & Dining</h3>
-            <p>Digital menu boards and entertainment screens designed for 24/7 high-impact performance.</p>
+        <span>ESTABLISHED 2026 // SAN DIEGO, CA</span>
+        <h1>Beyond the Screen.<br>Into Intelligence.</h1>
+        <p>Providing Southern California with world-class digital signage hardware and AI-driven content management.</p>
+        <div style="display: flex; gap: 15px;">
+            <a href="#solutions" class="btn-quote" style="text-decoration: none; padding: 15px 35px;">View Solutions</a>
+            <a href="#contact" style="color: #fff; text-decoration: none; padding: 15px 35px; border: 1px solid #333; border-radius: 30px; font-weight: 500;">Contact Us</a>
         </div>
     </section>
 
-    <section id="software" class="cta-box">
-        <h2 style="font-size: 3rem; margin-bottom: 20px;">The Vesta Cloud OS</h2>
-        <p style="font-size: 1.2rem; opacity: 0.9;">Manage one screen or one thousand from anywhere in the world. <br>Real-time updates, health monitoring, and content scheduling at your fingertips.</p>
-        <a href="mailto:info@vestapacific.tech" class="cta-btn">Request a Demo</a>
+    <section id="solutions">
+        <span class="section-tag">SERVICES</span>
+        <h2 class="section-title">Visual Excellence for Every Industry</h2>
+        <div class="services-grid">
+            <div class="card">
+                <h3>Luxury Retail</h3>
+                <p>High-brightness window displays and ultra-thin OLED screens designed to turn passersby into customers.</p>
+            </div>
+            <div class="card">
+                <h3>Corporate Identity</h3>
+                <p>Seamless LED video walls for lobbies and smart room-booking displays for San Diego's tech hubs.</p>
+            </div>
+            <div class="card">
+                <h3>Interactive Wayfinding</h3>
+                <p>Touch-enabled kiosks for malls and large campuses, integrated with real-time mapping technology.</p>
+            </div>
+        </div>
     </section>
 
-    <section class="grid" style="padding-top: 50px;">
-        <div class="card" style="text-align: center;">
-            <h4 style="margin-bottom: 10px;">Strategic Location</h4>
-            <p>Headquartered in San Diego, CA. Serving the Southern California tech corridor.</p>
+    <section id="software" style="background: #080808;">
+        <span class="section-tag">TECHNOLOGY</span>
+        <h2 class="section-title">The Vesta Cloud OS</h2>
+        <p style="color: var(--text-gray); max-width: 800px; margin-bottom: 40px; font-size: 1.1rem;">Our proprietary CMS allows you to push content, monitor hardware health, and analyze viewer engagement from a single dashboard in San Diego or anywhere in the world.</p>
+        <div class="stats">
+            <div class="stat-item"><h2>99.9%</h2><p>Uptime Guarantee</p></div>
+            <div class="stat-item"><h2>4K/8K</h2><p>Native Support</p></div>
+            <div class="stat-item"><h2>256-bit</h2><p>End-to-End Encryption</p></div>
+            <div class="stat-item"><h2>24/7</h2><p>Technical Support</p></div>
         </div>
-        <div class="card" style="text-align: center;">
-            <h4 style="margin-bottom: 10px;">Expert Installation</h4>
-            <p>Certified technicians ensuring seamless hardware integration and aesthetic perfection.</p>
-        </div>
+    </section>
+
+    <section id="about">
+        <span class="section-tag">OUR STORY</span>
+        <h2 class="section-title">Rooted in San Diego.</h2>
+        <p style="color: var(--text-gray); font-size: 1.2rem; max-width: 900px;">Vesta Pacific Tech was founded to bridge the gap between static hardware and dynamic intelligence. We don't just hang screens; we engineer communication ecosystems that breathe life into commercial spaces across California.</p>
     </section>
 
     <footer id="contact">
-        <div>&copy; 2026 VESTA PACIFIC TECH. All Rights Reserved.</div>
-        <div>PRECISION DIGITAL ENVIRONMENTS // SAN DIEGO, CA</div>
+        <div class="footer-content">
+            <div class="footer-col" style="flex: 1; min-width: 250px;">
+                <img src="assets/logo.png" alt="Vesta Pacific Tech" style="height: 30px; margin-bottom: 20px;">
+                <p style="color: var(--text-gray); font-size: 0.85rem;">Transforming spaces through visual intelligence. The future of digital signage is here.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Solutions</h4>
+                <ul>
+                    <li><a href="#">Retail Displays</a></li>
+                    <li><a href="#">Corporate LED</a></li>
+                    <li><a href="#">Digital Menu Boards</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#">San Diego HQ</a></li>
+                    <li><a href="mailto:info@vestapacific.tech">Careers</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">API Docs</a></li>
+                    <li><a href="#">System Status</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <div>&copy; 2026 Vesta Pacific Tech LLC. All rights reserved.</div>
+            <div>Built for the future. Based in San Diego, CA.</div>
+        </div>
     </footer>
 
 </body>
