@@ -83,13 +83,13 @@
         /* --- Visual Excellence Grid --- */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 30px;
         }
 
         .card {
             position: relative;
-            height: 400px;
+            height: 450px;
             border-radius: 30px;
             border: 1px solid var(--border);
             overflow: hidden;
@@ -103,30 +103,21 @@
             background-position: center;
         }
 
-        /* Kart Karartma Katmanı */
         .card::before {
             content: '';
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.2) 60%);
+            background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.1) 70%);
             transition: 0.5s;
             z-index: 1;
         }
 
         .card:hover { transform: translateY(-10px); border-color: var(--accent); }
-        .card:hover::before { background: linear-gradient(to top, rgba(0, 113, 227, 0.4) 0%, rgba(0,0,0,0.3) 100%); }
+        .card:hover::before { background: linear-gradient(to top, rgba(0, 113, 227, 0.5) 0%, rgba(0,0,0,0.2) 100%); }
 
         .card-content { position: relative; z-index: 2; }
         .card h3 { margin-bottom: 10px; font-size: 1.8rem; font-weight: 600; }
         .card p { color: #ccc; font-size: 1rem; opacity: 0.9; }
-
-        /* --- Platform Section --- */
-        .platform-box {
-            background: var(--glass);
-            padding: 60px;
-            border-radius: 40px;
-            border: 1px solid var(--border);
-        }
 
         /* --- Contact Form --- */
         .contact-container {
@@ -149,16 +140,12 @@
 
         /* --- Footer --- */
         footer { padding: 80px 8% 40px; background: #050505; text-align: center; color: #444; border-top: 1px solid #111; }
-        .footer-links { margin-bottom: 30px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
-        .footer-links a { color: #888; text-decoration: none; font-size: 0.8rem; transition: 0.3s; }
-        .footer-links a:hover { color: #fff; }
-
+        
         @media (max-width: 768px) {
             nav { padding: 15px 5%; }
             .nav-links { display: none; } 
             .contact-container { grid-template-columns: 1fr; padding: 30px; }
             .hero h1 { font-size: 3rem; }
-            section { padding: 80px 5%; }
             .card { height: 350px; }
         }
     </style>
@@ -180,7 +167,91 @@
     <section class="hero">
         <span class="section-tag">San Diego, CA // EST 2026</span>
         <h1>Intelligence on Display.</h1>
-        <p>Designing, deploying, and managing high-performance visual networks for Southern California's premier brands.</p>
+        <p>Designing and managing high-performance visual networks for Southern California's premier brands.</p>
         <div style="display: flex; gap: 20px; flex-wrap: wrap; justify-content: center;">
-            <a href="solutions.html" class="btn-quote" style="padding: 15px 40px;">Explore Solutions</a>
-            <a href="contact.html" style="color: #fff; text-decoration: none; padding: 15px
+            <a href="#solutions" class="btn-quote" style="padding: 15px 40px;">Explore Solutions</a>
+            <a href="contact.html" style="color: #fff; text-decoration: none; padding: 15px 40px; border: 1px solid #333; border-radius: 30px; font-weight: 500; transition: 0.3s;">Speak to an Expert</a>
+        </div>
+    </section>
+
+    <section id="solutions">
+        <span class="section-tag">Expertise</span>
+        <h2 class="section-title">Visual Excellence</h2>
+        <div class="services-grid">
+            
+            <a href="solutions.html" class="card" style="background-image: url('unnamed (5).jpg');">
+                <div class="card-content">
+                    <h3>Hospitality & Dining</h3>
+                    <p>Dynamic menu boards with live weather and Happy Hour integrations.</p>
+                </div>
+            </a>
+
+            <a href="solutions.html" class="card" style="background-image: url('unnamed (4).jpg');">
+                <div class="card-content">
+                    <h3>Premium Real Estate</h3>
+                    <p>High-impact window displays for La Jolla's luxury property market.</p>
+                </div>
+            </a>
+
+            <a href="solutions.html" class="card" style="background-image: url('unnamed (1).jpg');">
+                <div class="card-content">
+                    <h3>Corporate Hubs</h3>
+                    <p>Massive LED video walls for San Diego's leading technology headquarters.</p>
+                </div>
+            </a>
+
+            <a href="solutions.html" class="card" style="background-image: url('unnamed (3).jpg');">
+                <div class="card-content">
+                    <h3>Medical & Wellness</h3>
+                    <p>Patient-centric information hubs for modern healthcare environments.</p>
+                </div>
+            </a>
+
+            <a href="solutions.html" class="card" style="background-image: url('unnamed.jpg');">
+                <div class="card-content">
+                    <h3>Luxury Retail</h3>
+                    <p>Interactive storefronts designed for San Diego's premier shopping districts.</p>
+                </div>
+            </a>
+
+            <a href="solutions.html" class="card" style="background-image: url('unnamed (2).jpg');">
+                <div class="card-content">
+                    <h3>Concierge Services</h3>
+                    <p>Digital guest insights and local event tracking for hospitality lobbies.</p>
+                </div>
+            </a>
+
+        </div>
+    </section>
+
+    <section id="contact">
+        <span class="section-tag">Contact Us</span>
+        <h2 class="section-title">Ready to Modernize?</h2>
+        <div class="contact-container">
+            <div style="text-align: left;">
+                <h3 style="font-size: 1.8rem; margin-bottom: 20px; color: var(--accent);">San Diego HQ</h3>
+                <p style="color: var(--text-gray); margin-bottom: 25px;">Consult with our visual specialists to design a tailored digital environment.</p>
+                <p style="margin-bottom: 10px;"><strong>Region:</strong> Southern California / SDCA</p>
+                <p><strong>Support:</strong> 24/7 System Health Monitoring</p>
+            </div>
+            <form action="#">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" placeholder="John Doe" required>
+                </div>
+                <div class="form-group">
+                    <label>Business Email</label>
+                    <input type="email" placeholder="email@company.com" required>
+                </div>
+                <button type="submit" class="btn-quote" style="width: 100%; border: none; cursor: pointer; padding: 15px;">Send Inquiry</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 VESTA PACIFIC TECH LLC. ALL RIGHTS RESERVED.</p>
+        <p style="margin-top: 10px; font-size: 0.65rem; letter-spacing: 2px; color: #333;">PRECISION DIGITAL ENVIRONMENTS // SAN DIEGO, CA</p>
+    </footer>
+
+</body>
+</html>
