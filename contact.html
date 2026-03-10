@@ -1,14 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><meta charset="UTF-8"><title>Contact Us | Vesta Pacific Tech</title></head>
-<body style="background:#000; color:#fff; font-family:sans-serif; text-align:center; padding-top:100px;">
-    <h1>Start Your Project.</h1>
-    <p>Located in San Diego, serving the Pacific Tech corridor.</p>
-    <form style="max-width:400px; margin:40px auto; display:flex; flex-direction:column; gap:15px;">
-        <input type="text" placeholder="Your Name" style="padding:15px; border-radius:10px; border:1px solid #333; background:#111; color:#fff;">
-        <input type="email" placeholder="Business Email" style="padding:15px; border-radius:10px; border:1px solid #333; background:#111; color:#fff;">
-        <textarea placeholder="Tell us about your space" rows="5" style="padding:15px; border-radius:10px; border:1px solid #333; background:#111; color:#fff;"></textarea>
-        <button style="padding:15px; background:#0071e3; color:#fff; border:none; border-radius:25px; font-weight:bold; cursor:pointer;">Send Inquiry</button>
-    </form>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Vesta Pacific Tech</title>
+    <style>
+        :root {
+            --accent: #0071e3; --bg: #000; --glass: rgba(255, 255, 255, 0.05);
+            --border: rgba(255, 255, 255, 0.1); --text-gray: #86868b;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: var(--bg); color: #fff; font-family: -apple-system, sans-serif; height: 100vh; }
+
+        /* --- Standart Navigasyon --- */
+        nav {
+            position: fixed; top: 0; width: 100%; padding: 15px 8%;
+            display: flex; justify-content: space-between; align-items: center;
+            background: rgba(0,0,0,0.85); backdrop-filter: blur(20px); z-index: 1000;
+            border-bottom: 1px solid var(--border);
+        }
+        .nav-logo img { height: 40px; }
+        .nav-links { display: flex; gap: 25px; align-items: center; }
+        .nav-links a { color: #fff; text-decoration: none; font-size: 0.9rem; opacity: 0.8; }
+        .nav-links a:hover { opacity: 1; color: var(--accent); }
+
+        /* --- İletişim Formu Alanı --- */
+        .contact-wrapper { padding: 150px 8% 80px; display: flex; flex-direction: column; align-items: center; text-align: center; }
+        .contact-card { background: var(--glass); padding: 60px; border-radius: 40px; border: 1px solid var(--border); max-width: 600px; width: 100%; }
+        h1 { font-size: 3rem; margin-bottom: 10px; }
+        .email-link { color: var(--accent); font-size: 1.8rem; text-decoration: none; font-weight: 700; display: block; margin: 30px 0; transition: 0.3s; }
+        .email-link:hover { transform: scale(1.05); }
+        
+        .info-text { color: var(--text-gray); font-size: 1.1rem; margin-bottom: 40px; }
+        .back-home { color: #fff; opacity: 0.5; text-decoration: none; font-size: 0.9rem; }
+        .back-home:hover { opacity: 1; }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="nav-logo"><img src="assets/logo.png" alt="Vesta Pacific Tech"></a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="solutions.html">Solutions</a>
+            <a href="software.html">Cloud OS</a>
+            <a href="about.html">About</a>
+        </div>
+    </nav>
+
+    <div class="contact-wrapper">
+        <div class="contact-card">
+            <h1>Let's Project.</h1>
+            <p class="info-text">Ready to upgrade your space? Our San Diego team is standing by to provide a custom quote.</p>
+            
+            <span style="font-size: 0.8rem; color: var(--accent); letter-spacing: 2px;">DIRECT EMAIL</span>
+            <a href="mailto:info@vestapacific.tech" class="email-link">info@vestapacific.tech</a>
+            
+            <p style="margin-bottom: 30px;"><strong>Location:</strong> San Diego, California</p>
+            <a href="index.html" class="back-home">← Back to Homepage</a>
+        </div>
+    </div>
 </body>
 </html>
