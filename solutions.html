@@ -13,11 +13,10 @@
             --text-gray: #86868b;
         }
 
-        /* Safari & Global Fixes */
+        /* Global Reset */
         * { 
             margin: 0; padding: 0; box-sizing: border-box; 
             -webkit-font-smoothing: antialiased;
-            -webkit-tap-highlight-color: transparent;
         }
 
         body { 
@@ -31,67 +30,64 @@
             width: 100%;
         }
 
-        /* --- Navigation (Responsive Düzenleme) --- */
-        /* --- Navigasyonun Her Cihaza Sığması İçin Güncel Stil --- */
-nav {
-    position: fixed;
-    top: 0; width: 100%;
-    padding: 15px 4%; /* Payları biraz daralttık */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: rgba(0,0,0,0.85);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    z-index: 1000;
-    border-bottom: 1px solid var(--border);
-}
+        /* --- Navigasyon (Tüm sayfalarda bu yapıyı kullanacağız) --- */
+        nav {
+            position: fixed;
+            top: 0; width: 100%;
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0,0,0,0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border);
+        }
 
-.nav-links { 
-    display: flex; 
-    gap: clamp(8px, 2vw, 20px); /* Boşluğu ekrana göre otomatik ayarlar */
-    align-items: center; 
-}
+        .nav-logo img { height: clamp(35px, 5vw, 55px); }
 
-.nav-links a { 
-    color: #fff; 
-    text-decoration: none; 
-    font-size: clamp(0.65rem, 1.8vw, 0.9rem); /* Mobilde yazıyı otomatik küçültür */
-    opacity: 0.8; 
-    white-space: nowrap; /* Yazıların alt satıra kaymasını engeller */
-}
+        .nav-links { 
+            display: flex; 
+            gap: clamp(8px, 2vw, 25px); 
+            align-items: center; 
+        }
 
-.btn-quote {
-    background: var(--accent);
-    padding: 6px clamp(10px, 1.5vw, 18px) !important;
-    border-radius: 20px;
-    font-weight: 600;
-    opacity: 1 !important;
-}
+        .nav-links a { 
+            color: #fff; 
+            text-decoration: none; 
+            font-size: clamp(0.65rem, 1.6vw, 0.9rem); 
+            opacity: 0.8; 
+            transition: 0.3s;
+            white-space: nowrap;
+        }
 
-/* Mobil için özel ayar (Telefonlar için) */
-@media (max-width: 600px) {
-    .nav-logo img { height: 35px; } /* Logoyu mobilde biraz küçülttük */
-    .nav-links { gap: 8px; }
-}
+        .nav-links a:hover { opacity: 1; color: var(--accent); }
+
+        .btn-quote {
+            background: var(--accent) !important;
+            padding: 8px clamp(12px, 2vw, 20px) !important;
+            border-radius: 20px;
+            font-weight: 600;
+            opacity: 1 !important;
+            color: #fff !important;
+        }
 
         /* --- Header --- */
         .solutions-header {
             padding: 160px 8% 60px;
             text-align: center;
-            background: transparent; /* Body gradienti görünsün */
         }
         .solutions-header h1 { 
-            font-size: clamp(2rem, 8vw, 3.5rem); 
+            font-size: clamp(2.2rem, 8vw, 3.5rem); 
             letter-spacing: -0.05em; 
             margin-bottom: 20px; 
         }
 
-        /* --- Project Grid (Kritik Alan) --- */
+        /* --- Project Grid --- */
         .project-grid {
             padding: 40px 5% 120px;
             display: grid;
-            /* Android/Tablette taşmayı önleyen sihirli satır: */
             grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr));
             gap: clamp(20px, 4vw, 40px);
         }
@@ -105,9 +101,14 @@ nav {
             display: flex;
             flex-direction: column;
         }
+        
+        .project-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-5px);
+        }
 
         .project-img {
-            aspect-ratio: 16 / 9; /* Resimlerin her cihazda aynı oranda kalması için */
+            aspect-ratio: 16 / 9;
             background-color: #111;
         }
         .project-img img {
@@ -116,113 +117,99 @@ nav {
             object-fit: cover;
         }
 
-        .project-info { padding: clamp(20px, 4vw, 30px); }
+        .project-info { padding: 30px; }
         .tech-tag { color: var(--accent); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; margin-bottom: 10px; display: block; }
         .project-info h3 { font-size: 1.4rem; margin-bottom: 15px; }
         .project-info p { color: var(--text-gray); font-size: 0.95rem; }
 
-        footer { padding: 60px; text-align: center; color: #444; font-size: 0.8rem; }
+        footer { padding: 60px; text-align: center; color: #444; font-size: 0.8rem; border-top: 1px solid #111; }
 
-        /* --- Mobile Adjustments --- */
+        /* Mobil Düzenleme */
         @media (max-width: 600px) {
             nav { padding: 12px 4%; }
-            .nav-links a:not(.btn-quote) { font-size: 0.7rem; }
-            .project-grid { padding: 20px 5%; }
+            .nav-links { gap: 10px; }
         }
     </style>
 </head>
 <body>
+
 <nav>
     <a href="index.html" class="nav-logo">
         <img src="assets/logo.png" alt="Vesta Pacific Tech">
     </a>
     <div class="nav-links">
         <a href="index.html">Home</a>
-        <a href="solutions.html">Solutions</a>
+        <a href="solutions.html" style="color: var(--accent); opacity: 1;">Solutions</a>
         <a href="software.html">Signage Software</a>
         <a href="about.html">About</a>
         <a href="contact.html" class="btn-quote">Get a Quote</a>
     </div>
 </nav>
 
-    <header class="solutions-header">
-        <span style="color: var(--accent); font-weight: 600; letter-spacing: 2px;">PORTFOLIO</span>
-        <h1>San Diego Visual Projects</h1>
-    </header>
+<header class="solutions-header">
+    <span style="color: var(--accent); font-weight: 600; letter-spacing: 2px; text-transform: uppercase; font-size: 0.8rem;">Portfolio</span>
+    <h1>San Diego Visual Projects</h1>
+</header>
 
-    <div class="project-grid">
-        
-        <div class="project-card">
-            <div class="project-img">
-                <img src="assets/restaurant-pro.jpg" alt="Restaurant">
-            </div>
-            <div class="project-info">
-                <span class="tech-tag">Hospitality</span>
-                <h3>Digital Menu Systems</h3>
-                <p>Advanced Xibo deployments for San Diego's dining sector.</p>
-            </div>
+<div class="project-grid">
+    <div class="project-card">
+        <div class="project-img"><img src="assets/restaurant-pro.jpg" alt="Restaurant"></div>
+        <div class="project-info">
+            <span class="tech-tag">Hospitality</span>
+            <h3>Digital Menu Systems</h3>
+            <p>Advanced Xibo deployments for San Diego's dining sector.</p>
         </div>
-
-        <div class="project-card">
-            <div class="project-img">
-                <img src="assets/real-estate-pro.jpg" alt="Real Estate">
-            </div>
-            <div class="project-info">
-                <span class="tech-tag">Real Estate</span>
-                <h3>Property Showcases</h3>
-                <p>High-brightness window displays for La Jolla luxury homes.</p>
-            </div>
-        </div>
-
-        <div class="project-card">
-            <div class="project-img">
-                <img src="assets/corporate-pro.jpg" alt="Corporate">
-            </div>
-            <div class="project-info">
-                <span class="tech-tag">Corporate</span>
-                <h3>Enterprise Video Walls</h3>
-                <p>Seamless communication for tech hubs and lobby environments.</p>
-            </div>
-        </div>
-
-        <div class="project-card">
-            <div class="project-img">
-                <img src="assets/wellness-pro.jpg" alt="Wellness">
-            </div>
-            <div class="project-info">
-                <span class="tech-tag">Healthcare</span>
-                <h3>Patient Hubs</h3>
-                <p>Digital signage for wellness tips and clinic management.</p>
-            </div>
-        </div>
-
-        <div class="project-card">
-            <div class="project-img">
-                <img src="assets/unnamed.jpg" alt="Retail">
-            </div>
-            <div class="project-info">
-                <span class="tech-tag">Retail</span>
-                <h3>Fashion Week Displays</h3>
-                <p>Interactive branding for La Jolla's shopping districts.</p>
-            </div>
-        </div>
-
-        <div class="project-card">
-            <div class="project-img">
-                <img src="assets/unnamed%20(1).jpg" alt="Experience Center">
-            </div>
-            <div class="project-info">
-                <span class="tech-tag">Lobbies</span>
-                <h3>Local Insights</h3>
-                <p>Guest experience boards for San Diego hotels.</p>
-            </div>
-        </div>
-
     </div>
 
-    <footer>
-        &copy; 2026 VESTA PACIFIC TECH LLC.
-    </footer>
+    <div class="project-card">
+        <div class="project-img"><img src="assets/real-estate-pro.jpg" alt="Real Estate"></div>
+        <div class="project-info">
+            <span class="tech-tag">Real Estate</span>
+            <h3>Property Showcases</h3>
+            <p>High-brightness window displays for La Jolla luxury homes.</p>
+        </div>
+    </div>
+
+    <div class="project-card">
+        <div class="project-img"><img src="assets/corporate-pro.jpg" alt="Corporate"></div>
+        <div class="project-info">
+            <span class="tech-tag">Corporate</span>
+            <h3>Enterprise Video Walls</h3>
+            <p>Seamless communication for tech hubs and lobby environments.</p>
+        </div>
+    </div>
+
+    <div class="project-card">
+        <div class="project-img"><img src="assets/wellness-pro.jpg" alt="Wellness"></div>
+        <div class="project-info">
+            <span class="tech-tag">Healthcare</span>
+            <h3>Patient Hubs</h3>
+            <p>Digital signage for wellness tips and clinic management.</p>
+        </div>
+    </div>
+
+    <div class="project-card">
+        <div class="project-img"><img src="assets/unnamed.jpg" alt="Retail"></div>
+        <div class="project-info">
+            <span class="tech-tag">Retail</span>
+            <h3>Fashion Week Displays</h3>
+            <p>Interactive branding for La Jolla's shopping districts.</p>
+        </div>
+    </div>
+
+    <div class="project-card">
+        <div class="project-img"><img src="assets/unnamed%20(1).jpg" alt="Experience Center"></div>
+        <div class="project-info">
+            <span class="tech-tag">Lobbies</span>
+            <h3>Local Insights</h3>
+            <p>Guest experience boards for San Diego hotels.</p>
+        </div>
+    </div>
+</div>
+
+<footer>
+    &copy; 2026 VESTA PACIFIC TECH LLC.
+</footer>
 
 </body>
 </html>
