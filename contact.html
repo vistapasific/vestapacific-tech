@@ -44,20 +44,51 @@
         footer { padding: 60px 8%; text-align: center; color: #444; font-size: 0.8rem; }
     </style>
 </head>
-<body>
-    .btn-quote {
+/* --- Navigasyonun Her Cihaza Sığması İçin Güncel Stil --- */
+nav {
+    position: fixed;
+    top: 0; width: 100%;
+    padding: 15px 4%; /* Payları biraz daralttık */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0,0,0,0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    z-index: 1000;
+    border-bottom: 1px solid var(--border);
+}
+
+.nav-links { 
+    display: flex; 
+    gap: clamp(8px, 2vw, 20px); /* Boşluğu ekrana göre otomatik ayarlar */
+    align-items: center; 
+}
+
+.nav-links a { 
+    color: #fff; 
+    text-decoration: none; 
+    font-size: clamp(0.65rem, 1.8vw, 0.9rem); /* Mobilde yazıyı otomatik küçültür */
+    opacity: 0.8; 
+    white-space: nowrap; /* Yazıların alt satıra kaymasını engeller */
+}
+
+.btn-quote {
     background: var(--accent);
-    padding: 10px 22px;
+    padding: 6px clamp(10px, 1.5vw, 18px) !important;
     border-radius: 20px;
     font-weight: 600;
-    text-decoration: none !important;
-    color: #fff !important;
-    transition: 0.3s;
-    display: inline-block;
+    opacity: 1 !important;
+}
+
+/* Mobil için özel ayar (Telefonlar için) */
+@media (max-width: 600px) {
+    .nav-logo img { height: 35px; } /* Logoyu mobilde biraz küçülttük */
+    .nav-links { gap: 8px; }
 }
     <nav>
     <a href="index.html" class="nav-logo">
-        <img src="assets/logo.png" alt="VP TECH" onerror="this.style.display='none'; this.after('VESTA PACIFIC')">
+        <img src="assets/logo.png" alt="Vesta Pacific Tech">
     </a>
     <div class="nav-links">
         <a href="index.html">Home</a>
