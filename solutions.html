@@ -13,7 +13,6 @@
             --text-gray: #86868b;
         }
 
-        /* Temel Ayarlar */
         * { 
             margin: 0; padding: 0; box-sizing: border-box; 
             -webkit-font-smoothing: antialiased;
@@ -31,7 +30,7 @@
             width: 100%;
         }
 
-        /* --- Navigasyon & Burger Menü --- */
+        /* --- Navigasyon --- */
         nav {
             position: fixed;
             top: 0; width: 100%;
@@ -48,22 +47,8 @@
 
         .nav-logo img { height: clamp(35px, 5vw, 50px); }
 
-        /* Masaüstü Navigasyon */
-        .nav-links { 
-            display: flex; 
-            gap: 25px; 
-            align-items: center; 
-        }
-
-        .nav-links a { 
-            color: #fff; 
-            text-decoration: none; 
-            font-size: 0.9rem; 
-            opacity: 0.8; 
-            transition: 0.3s;
-            white-space: nowrap;
-        }
-
+        .nav-links { display: flex; gap: 25px; align-items: center; }
+        .nav-links a { color: #fff; text-decoration: none; font-size: 0.9rem; opacity: 0.8; transition: 0.3s; }
         .nav-links a:hover { opacity: 1; color: var(--accent); }
 
         .btn-quote {
@@ -71,66 +56,37 @@
             padding: 8px 20px !important;
             border-radius: 20px;
             font-weight: 600;
-            opacity: 1 !important;
             color: #fff !important;
         }
 
-        /* Burger İkonu */
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            gap: 6px;
-            cursor: pointer;
-            z-index: 10001;
-        }
+        /* Burger Menu */
+        .menu-toggle { display: none; flex-direction: column; gap: 6px; cursor: pointer; z-index: 10001; }
+        .menu-toggle span { width: 28px; height: 2px; background: #fff; transition: 0.3s; }
 
-        .menu-toggle span {
-            width: 28px;
-            height: 2px;
-            background: #fff;
-            transition: 0.3s;
-            border-radius: 2px;
-        }
-
-        /* Mobil Ayarlar (Tablet ve Telefon) */
         @media (max-width: 850px) {
             .menu-toggle { display: flex; }
-
             .nav-links {
-                position: fixed;
-                top: 0;
-                right: -100%; /* Menü kapalıyken sağda gizli */
-                width: 100%;
-                height: 100vh;
-                background: #000;
-                flex-direction: column;
-                justify-content: center;
-                gap: 40px;
+                position: fixed; top: 0; right: -100%; width: 100%; height: 100vh;
+                background: #000; flex-direction: column; justify-content: center; gap: 40px;
                 transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
             }
-
-            .nav-links.active {
-                right: 0; /* Menü açıldığında */
-            }
-
+            .nav-links.active { right: 0; }
             .nav-links a { font-size: 1.5rem; }
-
-            /* Çarpı (X) Animasyonu */
             .menu-toggle.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
             .menu-toggle.active span:nth-child(2) { opacity: 0; }
             .menu-toggle.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
         }
 
-        /* --- İçerik Alanı --- */
+        /* --- Content --- */
         header { padding: 180px 8% 60px; text-align: center; }
         header h1 { font-size: clamp(2.5rem, 8vw, 4rem); letter-spacing: -2px; margin-bottom: 20px; }
         header p { color: var(--text-gray); max-width: 600px; margin: 0 auto; font-size: 1.2rem; }
 
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr));
-            gap: 40px;
-            padding: 40px 8% 100px;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr));
+            gap: 30px;
+            padding: 20px 8% 100px;
         }
 
         .project-card {
@@ -139,18 +95,20 @@
             border: 1px solid var(--border);
             overflow: hidden;
             transition: 0.4s;
+            display: flex;
+            flex-direction: column;
         }
 
         .project-card:hover { border-color: var(--accent); transform: translateY(-5px); }
 
-        .project-img { height: 300px; overflow: hidden; background: #111; }
+        .project-img { height: 250px; overflow: hidden; background: #111; }
         .project-img img { width: 100%; height: 100%; object-fit: cover; opacity: 0.8; transition: 0.5s; }
-        .project-card:hover img { transform: scale(1.05); opacity: 1; }
+        .project-card:hover img { opacity: 1; transform: scale(1.05); }
 
-        .project-info { padding: 30px; }
-        .tech-tag { color: var(--accent); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; }
-        .project-info h3 { margin: 10px 0; font-size: 1.6rem; }
-        .project-info p { color: var(--text-gray); font-size: 1rem; }
+        .project-info { padding: 25px; }
+        .tech-tag { color: var(--accent); font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; }
+        .project-info h3 { margin: 8px 0; font-size: 1.4rem; }
+        .project-info p { color: var(--text-gray); font-size: 0.95rem; line-height: 1.4; }
 
         footer { padding: 60px; text-align: center; color: #444; font-size: 0.8rem; border-top: 1px solid #111; }
     </style>
@@ -161,13 +119,9 @@
     <a href="index.html" class="nav-logo">
         <img src="assets/logo.png" alt="Vesta Pacific Tech">
     </a>
-
     <div class="menu-toggle" id="mobile-menu">
-        <span></span>
-        <span></span>
-        <span></span>
+        <span></span><span></span><span></span>
     </div>
-
     <div class="nav-links" id="nav-list">
         <a href="index.html">Home</a>
         <a href="solutions.html" style="color: var(--accent);">Solutions</a>
@@ -179,77 +133,74 @@
 
 <header>
     <h1>Industry Solutions</h1>
-    <p>Premium digital signage strategies tailored for high-impact commercial environments.</p>
+    <p>Tailored digital strategies for Southern California's commercial landscape.</p>
 </header>
 
 <div class="projects-grid">
     <div class="project-card">
-        <div class="project-img">
-            <img src="assets/restaurant-pro.jpg" alt="Hospitality">
-        </div>
+        <div class="project-img"><img src="assets/restaurant-pro.jpg" alt="Hospitality"></div>
         <div class="project-info">
             <span class="tech-tag">Hospitality</span>
             <h3>Smart Dining</h3>
-            <p>Next-gen digital menus and interactive ordering systems for modern restaurants.</p>
+            <p>Interactive menu boards and automated ordering systems for modern high-volume venues.</p>
         </div>
     </div>
 
     <div class="project-card">
-        <div class="project-img">
-            <img src="assets/corporate-pro.jpg" alt="Corporate">
-        </div>
+        <div class="project-img"><img src="assets/corporate-pro.jpg" alt="Corporate"></div>
         <div class="project-info">
             <span class="tech-tag">Enterprise</span>
-            <h3>Executive Video Walls</h3>
-            <p>Seamless communication for tech hubs and lobby environments in San Diego.</p>
+            <h3>Executive Hubs</h3>
+            <p>Dynamic video walls and internal communication displays for SD tech corridor HQs.</p>
         </div>
     </div>
 
     <div class="project-card">
-        <div class="project-img">
-            <img src="assets/wellness-pro.jpg" alt="Healthcare">
-        </div>
-        <div class="project-info">
-            <span class="tech-tag">Healthcare</span>
-            <h3>Patient Hubs</h3>
-            <p>Informative wellness boards and real-time clinic management displays.</p>
-        </div>
-    </div>
-
-    <div class="project-card">
-        <div class="project-img">
-            <img src="assets/unnamed.jpg" alt="Retail">
-        </div>
+        <div class="project-img"><img src="assets/unnamed.jpg" alt="Retail"></div>
         <div class="project-info">
             <span class="tech-tag">Retail</span>
-            <h3>Luxury Retail Displays</h3>
-            <p>High-resolution branding for premier shopping districts and boutiques.</p>
+            <h3>Luxury Branding</h3>
+            <p>Window-facing high-brightness displays for premier shopping districts and boutiques.</p>
+        </div>
+    </div>
+
+    <div class="project-card">
+        <div class="project-img"><img src="assets/wellness-pro.jpg" alt="Healthcare"></div>
+        <div class="project-info">
+            <span class="tech-tag">Healthcare</span>
+            <h3>Patient Wellness</h3>
+            <p>Wayfinding systems and health analytics dashboards for modern medical centers.</p>
+        </div>
+    </div>
+
+    <div class="project-card">
+        <div class="project-img"><img src="assets/real-estate-pro.jpg" alt="Real Estate"></div>
+        <div class="project-info">
+            <span class="tech-tag">Real Estate</span>
+            <h3>Premium Listings</h3>
+            <p>High-resolution property showcase displays for luxury real estate agencies.</p>
+        </div>
+    </div>
+
+    <div class="project-card">
+        <div class="project-img"><img src="assets/fitness-pro.jpg" alt="Fitness"></div>
+        <div class="project-info">
+            <span class="tech-tag">Fitness</span>
+            <h3>Performance Hubs</h3>
+            <p>Real-time class schedules and leaderboard displays for elite athletic facilities.</p>
         </div>
     </div>
 </div>
 
-<footer>
-    &copy; 2026 VESTA PACIFIC TECH LLC. ALL RIGHTS RESERVED.
-</footer>
+<footer>&copy; 2026 VESTA PACIFIC TECH LLC. ALL RIGHTS RESERVED.</footer>
 
 <script>
     const menuToggle = document.getElementById('mobile-menu');
     const navList = document.getElementById('nav-list');
-
-    // Menü aç/kapat
     menuToggle.addEventListener('click', () => {
         menuToggle.classList.toggle('active');
         navList.classList.toggle('active');
     });
-
-    // Sayfa içindeki bir linke tıklanırsa menüyü kapat
-    document.querySelectorAll('.nav-links a').forEach(link => {
-        link.addEventListener('click', () => {
-            menuToggle.classList.remove('active');
-            navList.classList.remove('active');
-        });
-    });
 </script>
-
 </body>
 </html>
