@@ -14,13 +14,16 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
-            background-color: var(--bg); 
-            color: #fff; 
-            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
-            line-height: 1.6;
-        }
-
+      body { 
+    background-color: var(--bg); 
+    /* Sadece bu satırı ekliyoruz, diğerleri aynı kalıyor */
+    background-image: radial-gradient(circle at 50% 25%, #111 0%, #000 70%);
+    background-attachment: fixed;
+    color: #fff; 
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif; 
+    line-height: 1.5;
+    overflow-x: hidden;
+}
         nav {
             position: fixed;
             top: 0; width: 100%;
@@ -33,7 +36,7 @@
             z-index: 1000;
             border-bottom: 1px solid var(--border);
         }
-        .nav-logo img { height: 35px; }
+        .nav-logo img { height: 60px; }
         .nav-links a { color: #fff; text-decoration: none; font-size: 0.9rem; margin-left: 25px; opacity: 0.8; transition: 0.3s; }
         .nav-links a:hover { opacity: 1; color: var(--accent); }
 
