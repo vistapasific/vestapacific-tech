@@ -13,7 +13,7 @@
             --text-gray: #86868b;
         }
 
-        /* Global Reset */
+        /* Temel Ayarlar */
         * { 
             margin: 0; padding: 0; box-sizing: border-box; 
             -webkit-font-smoothing: antialiased;
@@ -31,7 +31,7 @@
             width: 100%;
         }
 
-        /* --- Global Navigasyon --- */
+        /* --- Navigasyon & Burger Menü --- */
         nav {
             position: fixed;
             top: 0; width: 100%;
@@ -42,22 +42,22 @@
             background: rgba(0,0,0,0.85);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            z-index: 1000;
+            z-index: 10000;
             border-bottom: 1px solid var(--border);
         }
 
-        .nav-logo img { height: clamp(35px, 5vw, 55px); }
+        .nav-logo img { height: clamp(35px, 5vw, 50px); }
 
         .nav-links { 
             display: flex; 
-            gap: clamp(8px, 2vw, 25px); 
+            gap: 25px; 
             align-items: center; 
         }
 
         .nav-links a { 
             color: #fff; 
             text-decoration: none; 
-            font-size: clamp(0.65rem, 1.6vw, 0.9rem); 
+            font-size: 0.9rem; 
             opacity: 0.8; 
             transition: 0.3s;
             white-space: nowrap;
@@ -67,14 +67,59 @@
 
         .btn-quote {
             background: var(--accent) !important;
-            padding: 8px clamp(12px, 2vw, 20px) !important;
+            padding: 8px 20px !important;
             border-radius: 20px;
             font-weight: 600;
             opacity: 1 !important;
             color: #fff !important;
         }
 
-        /* --- About Sayfası İçerik --- */
+        /* Burger İkonu */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            z-index: 10001;
+        }
+
+        .menu-toggle span {
+            width: 28px;
+            height: 2px;
+            background: #fff;
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+
+        /* Mobil Menü */
+        @media (max-width: 850px) {
+            .menu-toggle { display: flex; }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 100%;
+                height: 100vh;
+                background: #000;
+                flex-direction: column;
+                justify-content: center;
+                gap: 40px;
+                transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .nav-links a { font-size: 1.5rem; }
+
+            .menu-toggle.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+            .menu-toggle.active span:nth-child(2) { opacity: 0; }
+            .menu-toggle.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+        }
+
+        /* --- About Content --- */
         .about-hero { 
             padding: 180px 8% 60px; 
             text-align: center; 
@@ -125,10 +170,9 @@
         .value-card h3 { color: var(--accent); margin-bottom: 15px; font-size: 1.5rem; }
         .value-card p { font-size: 1rem; color: var(--text-gray); }
 
-        footer { padding: 60px 8%; text-align: center; color: #444; font-size: 0.8rem; border-top: 1px solid #111; }
+        footer { padding: 60px; text-align: center; color: #444; font-size: 0.8rem; border-top: 1px solid #111; }
 
         @media (max-width: 600px) {
-            nav { padding: 12px 4%; }
             .about-hero { padding-top: 140px; }
             .story-content { padding: 0 5% 80px; }
         }
@@ -140,11 +184,18 @@
     <a href="index.html" class="nav-logo">
         <img src="assets/logo.png" alt="Vesta Pacific Tech">
     </a>
-    <div class="nav-links">
+
+    <div class="menu-toggle" id="mobile-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <div class="nav-links" id="nav-list">
         <a href="index.html">Home</a>
         <a href="solutions.html">Solutions</a>
         <a href="software.html">Signage Software</a>
-        <a href="about.html" style="color: var(--accent); opacity: 1;">About</a>
+        <a href="about.html" style="color: var(--accent);">About</a>
         <a href="contact.html" class="btn-quote">Get a Quote</a>
     </div>
 </nav>
@@ -172,6 +223,23 @@
 <footer>
     <p>&copy; 2026 VESTA PACIFIC TECH LLC. ALL RIGHTS RESERVED.</p>
 </footer>
+
+<script>
+    const menuToggle = document.getElementById('mobile-menu');
+    const navList = document.getElementById('nav-list');
+
+    menuToggle.addEventListener('click', () => {
+        menuToggle.classList.toggle('active');
+        navList.classList.toggle('active');
+    });
+
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            menuToggle.classList.remove('active');
+            navList.classList.remove('active');
+        });
+    });
+</script>
 
 </body>
 </html>
