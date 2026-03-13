@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Signage Software | Vesta Pacific Tech</title>
+    <title>Vesta Cloud OS | Intelligence Management</title>
     <style>
         :root {
             --accent: #0071e3;
@@ -13,7 +13,12 @@
             --text-gray: #86868b;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-font-smoothing: antialiased; }
+        /* Temel Ayarlar */
+        * { 
+            margin: 0; padding: 0; box-sizing: border-box; 
+            -webkit-font-smoothing: antialiased;
+            -webkit-tap-highlight-color: transparent;
+        }
 
         body { 
             background-color: var(--bg); 
@@ -26,7 +31,7 @@
             width: 100%;
         }
 
-        /* --- Navigasyon (Tüm sayfalarda ortak) --- */
+        /* --- Navigasyon & Burger Menü --- */
         nav {
             position: fixed;
             top: 0; width: 100%;
@@ -37,37 +42,86 @@
             background: rgba(0,0,0,0.85);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            z-index: 1000;
+            z-index: 10000;
             border-bottom: 1px solid var(--border);
         }
 
-        .nav-logo img { height: clamp(35px, 5vw, 55px); }
+        .nav-logo img { height: clamp(35px, 5vw, 50px); }
 
+        /* Masaüstü Navigasyon */
         .nav-links { 
             display: flex; 
-            gap: clamp(8px, 2vw, 25px); 
+            gap: 25px; 
             align-items: center; 
         }
 
         .nav-links a { 
             color: #fff; 
             text-decoration: none; 
-            font-size: clamp(0.65rem, 1.6vw, 0.9rem); 
+            font-size: 0.9rem; 
             opacity: 0.8; 
             transition: 0.3s;
             white-space: nowrap;
         }
 
+        .nav-links a:hover { opacity: 1; color: var(--accent); }
+
         .btn-quote {
             background: var(--accent) !important;
-            padding: 8px clamp(12px, 2vw, 20px) !important;
+            padding: 8px 20px !important;
             border-radius: 20px;
             font-weight: 600;
             opacity: 1 !important;
             color: #fff !important;
         }
 
-        /* --- Software Sayfası Özel Stilleri --- */
+        /* Burger İkonu */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            z-index: 10001;
+        }
+
+        .menu-toggle span {
+            width: 28px;
+            height: 2px;
+            background: #fff;
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+
+        /* Mobil Menü Paneli (Tablet ve Telefon) */
+        @media (max-width: 850px) {
+            .menu-toggle { display: flex; }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 100%;
+                height: 100vh;
+                background: #000;
+                flex-direction: column;
+                justify-content: center;
+                gap: 40px;
+                transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .nav-links a { font-size: 1.5rem; }
+
+            /* X Animasyonu */
+            .menu-toggle.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+            .menu-toggle.active span:nth-child(2) { opacity: 0; }
+            .menu-toggle.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+        }
+
+        /* --- Software Sayfası İçerik --- */
         .content-header {
             padding: 180px 8% 60px;
             text-align: center;
@@ -84,12 +138,12 @@
             color: var(--text-gray); 
             max-width: 700px; 
             margin: 0 auto; 
-            font-size: clamp(1rem, 1.5vw, 1.25rem); 
+            font-size: clamp(1rem, 1.5vw, 1.2rem); 
         }
 
         .feature-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
             gap: 30px;
             padding: 40px 8% 80px;
         }
@@ -118,11 +172,6 @@
         }
 
         footer { padding: 60px; text-align: center; color: #444; font-size: 0.8rem; border-top: 1px solid #111; }
-
-        @media (max-width: 600px) {
-            nav { padding: 12px 4%; }
-            .feature-grid { padding: 20px 5%; }
-        }
     </style>
 </head>
 <body>
@@ -131,18 +180,25 @@
     <a href="index.html" class="nav-logo">
         <img src="assets/logo.png" alt="Vesta Pacific Tech">
     </a>
-    <div class="nav-links">
+
+    <div class="menu-toggle" id="mobile-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <div class="nav-links" id="nav-list">
         <a href="index.html">Home</a>
         <a href="solutions.html">Solutions</a>
-        <a href="software.html" style="color: var(--accent); opacity: 1;">Signage Software</a>
+        <a href="software.html" style="color: var(--accent);">Signage Software</a>
         <a href="about.html">About</a>
         <a href="contact.html" class="btn-quote">Get a Quote</a>
     </div>
 </nav>
 
 <header class="content-header">
-    <h1>Signage Software</h1>
-    <p>A unified management system designed to control large-scale digital networks with precision, real-time sync, and enterprise security.</p>
+    <h1>Vesta Cloud OS</h1>
+    <p>A unified operating system designed to manage large-scale digital signage networks with precision, real-time sync, and enterprise security.</p>
 </header>
 
 <div class="feature-grid">
@@ -168,6 +224,23 @@
 <footer>
     <p>&copy; 2026 VESTA PACIFIC TECH LLC. ALL RIGHTS RESERVED.</p>
 </footer>
+
+<script>
+    const menuToggle = document.getElementById('mobile-menu');
+    const navList = document.getElementById('nav-list');
+
+    menuToggle.addEventListener('click', () => {
+        menuToggle.classList.toggle('active');
+        navList.classList.toggle('active');
+    });
+
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            menuToggle.classList.remove('active');
+            navList.classList.remove('active');
+        });
+    });
+</script>
 
 </body>
 </html>
