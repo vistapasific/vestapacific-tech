@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Industry Solutions | Vesta Pacific Tech</title>
     <style>
         :root {
@@ -13,45 +13,86 @@
             --text-gray: #86868b;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-      body { 
-    background-color: var(--bg); 
-    /* Sadece bu satırı ekliyoruz, diğerleri aynı kalıyor */
-    background-image: radial-gradient(circle at 50% 25%, #111 0%, #000 70%);
-    background-attachment: fixed;
-    color: #fff; 
-    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif; 
-    line-height: 1.5;
-    overflow-x: hidden;
-}
+        /* Safari & Global Fixes */
+        * { 
+            margin: 0; padding: 0; box-sizing: border-box; 
+            -webkit-font-smoothing: antialiased;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body { 
+            background-color: var(--bg); 
+            background-image: radial-gradient(circle at 50% 25%, #111 0%, #000 70%);
+            background-attachment: fixed;
+            color: #fff; 
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif; 
+            line-height: 1.5;
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        /* --- Navigation (Responsive Düzenleme) --- */
         nav {
             position: fixed;
             top: 0; width: 100%;
-            padding: 15px 8%;
+            padding: 15px 5%; /* Yan payları Android için esnettik */
             display: flex;
             justify-content: space-between;
             align-items: center;
             background: rgba(0,0,0,0.85);
             backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             z-index: 1000;
             border-bottom: 1px solid var(--border);
         }
-        .nav-logo img { height: 60px; }
-        .nav-links a { color: #fff; text-decoration: none; font-size: 0.9rem; margin-left: 25px; opacity: 0.8; transition: 0.3s; }
+
+        .nav-logo img { 
+            height: clamp(40px, 6vw, 60px); /* Mobilde otomatik küçülür */
+            width: auto;
+        }
+
+        .nav-links { 
+            display: flex; 
+            gap: clamp(10px, 3vw, 25px); /* Ekran daraldıkça boşluk azalır */
+            align-items: center;
+        }
+
+        .nav-links a { 
+            color: #fff; text-decoration: none; 
+            font-size: clamp(0.75rem, 1.5vw, 0.9rem); 
+            opacity: 0.8; transition: 0.3s;
+            white-space: nowrap; /* Yazıların kırılmasını önler */
+        }
         .nav-links a:hover { opacity: 1; color: var(--accent); }
 
-        .solutions-header {
-            padding: 180px 8% 60px;
-            text-align: center;
-            background: radial-gradient(circle at top, #111 0%, #000 100%);
+        /* Get a Quote Butonu */
+        .btn-quote {
+            background: var(--accent);
+            padding: 8px clamp(12px, 2vw, 22px);
+            border-radius: 20px;
+            font-weight: 600;
+            opacity: 1 !important;
         }
-        .solutions-header h1 { font-size: 3.5rem; letter-spacing: -0.05em; margin-bottom: 20px; }
 
+        /* --- Header --- */
+        .solutions-header {
+            padding: 160px 8% 60px;
+            text-align: center;
+            background: transparent; /* Body gradienti görünsün */
+        }
+        .solutions-header h1 { 
+            font-size: clamp(2rem, 8vw, 3.5rem); 
+            letter-spacing: -0.05em; 
+            margin-bottom: 20px; 
+        }
+
+        /* --- Project Grid (Kritik Alan) --- */
         .project-grid {
-            padding: 60px 8% 120px;
+            padding: 40px 5% 120px;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 40px;
+            /* Android/Tablette taşmayı önleyen sihirli satır: */
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr));
+            gap: clamp(20px, 4vw, 40px);
         }
 
         .project-card {
@@ -60,11 +101,13 @@
             border: 1px solid var(--border);
             overflow: hidden;
             transition: 0.4s;
+            display: flex;
+            flex-direction: column;
         }
 
         .project-img {
-            height: 300px;
-            background-color: #111; /* Resim yüklenene kadar siyah kalsın */
+            aspect-ratio: 16 / 9; /* Resimlerin her cihazda aynı oranda kalması için */
+            background-color: #111;
         }
         .project-img img {
             width: 100%;
@@ -72,12 +115,19 @@
             object-fit: cover;
         }
 
-        .project-info { padding: 30px; }
+        .project-info { padding: clamp(20px, 4vw, 30px); }
         .tech-tag { color: var(--accent); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; margin-bottom: 10px; display: block; }
-        .project-info h3 { font-size: 1.6rem; margin-bottom: 15px; }
-        .project-info p { color: var(--text-gray); }
+        .project-info h3 { font-size: 1.4rem; margin-bottom: 15px; }
+        .project-info p { color: var(--text-gray); font-size: 0.95rem; }
 
         footer { padding: 60px; text-align: center; color: #444; font-size: 0.8rem; }
+
+        /* --- Mobile Adjustments --- */
+        @media (max-width: 600px) {
+            nav { padding: 12px 4%; }
+            .nav-links a:not(.btn-quote) { font-size: 0.7rem; }
+            .project-grid { padding: 20px 5%; }
+        }
     </style>
 </head>
 <body>
@@ -89,8 +139,7 @@
         <div class="nav-links">
             <a href="index.html">Home</a>
             <a href="software.html">Cloud OS</a>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
+            <a href="contact.html" class="btn-quote">Get a Quote</a>
         </div>
     </nav>
 
