@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Signage Software | Intelligence Management</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Signage Software | Vesta Pacific Tech</title>
     <style>
         :root {
             --accent: #0071e3;
@@ -13,64 +13,120 @@
             --text-gray: #86868b;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-       body { 
-    background-color: var(--bg); 
-    /* Sadece bu satırı ekliyoruz, diğerleri aynı kalıyor */
-    background-image: radial-gradient(circle at 50% 25%, #111 0%, #000 70%);
-    background-attachment: fixed;
-    color: #fff; 
-    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif; 
-    line-height: 1.5;
-    overflow-x: hidden;
-}
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-font-smoothing: antialiased; }
 
-        /* --- Navigation --- */
-        /* --- Navigasyonun Her Cihaza Sığması İçin Güncel Stil --- */
-nav {
-    position: fixed;
-    top: 0; width: 100%;
-    padding: 15px 4%; /* Payları biraz daralttık */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: rgba(0,0,0,0.85);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    z-index: 1000;
-    border-bottom: 1px solid var(--border);
-}
+        body { 
+            background-color: var(--bg); 
+            background-image: radial-gradient(circle at 50% 25%, #111 0%, #000 70%);
+            background-attachment: fixed;
+            color: #fff; 
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif; 
+            line-height: 1.5;
+            overflow-x: hidden;
+            width: 100%;
+        }
 
-.nav-links { 
-    display: flex; 
-    gap: clamp(8px, 2vw, 20px); /* Boşluğu ekrana göre otomatik ayarlar */
-    align-items: center; 
-}
+        /* --- Navigasyon (Tüm sayfalarda ortak) --- */
+        nav {
+            position: fixed;
+            top: 0; width: 100%;
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0,0,0,0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border);
+        }
 
-.nav-links a { 
-    color: #fff; 
-    text-decoration: none; 
-    font-size: clamp(0.65rem, 1.8vw, 0.9rem); /* Mobilde yazıyı otomatik küçültür */
-    opacity: 0.8; 
-    white-space: nowrap; /* Yazıların alt satıra kaymasını engeller */
-}
+        .nav-logo img { height: clamp(35px, 5vw, 55px); }
 
-.btn-quote {
-    background: var(--accent);
-    padding: 6px clamp(10px, 1.5vw, 18px) !important;
-    border-radius: 20px;
-    font-weight: 600;
-    opacity: 1 !important;
-}
+        .nav-links { 
+            display: flex; 
+            gap: clamp(8px, 2vw, 25px); 
+            align-items: center; 
+        }
 
-/* Mobil için özel ayar (Telefonlar için) */
-@media (max-width: 600px) {
-    .nav-logo img { height: 35px; } /* Logoyu mobilde biraz küçülttük */
-    .nav-links { gap: 8px; }
-}
+        .nav-links a { 
+            color: #fff; 
+            text-decoration: none; 
+            font-size: clamp(0.65rem, 1.6vw, 0.9rem); 
+            opacity: 0.8; 
+            transition: 0.3s;
+            white-space: nowrap;
+        }
+
+        .btn-quote {
+            background: var(--accent) !important;
+            padding: 8px clamp(12px, 2vw, 20px) !important;
+            border-radius: 20px;
+            font-weight: 600;
+            opacity: 1 !important;
+            color: #fff !important;
+        }
+
+        /* --- Software Sayfası Özel Stilleri --- */
+        .content-header {
+            padding: 180px 8% 60px;
+            text-align: center;
+        }
+
+        .content-header h1 { 
+            font-size: clamp(2.5rem, 8vw, 4rem); 
+            font-weight: 700; 
+            margin-bottom: 20px; 
+            letter-spacing: -0.02em;
+        }
+
+        .content-header p { 
+            color: var(--text-gray); 
+            max-width: 700px; 
+            margin: 0 auto; 
+            font-size: clamp(1rem, 1.5vw, 1.25rem); 
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 40px 8% 80px;
+        }
+
+        .feature-card {
+            background: var(--glass);
+            padding: 40px;
+            border-radius: 30px;
+            border: 1px solid var(--border);
+            transition: 0.3s;
+        }
+
+        .feature-card:hover { 
+            border-color: var(--accent); 
+            transform: translateY(-5px); 
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .feature-card h3 { color: var(--accent); margin-bottom: 15px; font-size: 1.5rem; }
+        .feature-card p { color: var(--text-gray); font-size: 1rem; }
+
+        .cta-section {
+            text-align: center;
+            padding: 80px 8%;
+            background: linear-gradient(to bottom, transparent, rgba(0, 113, 227, 0.05));
+        }
+
+        footer { padding: 60px; text-align: center; color: #444; font-size: 0.8rem; border-top: 1px solid #111; }
+
+        @media (max-width: 600px) {
+            nav { padding: 12px 4%; }
+            .feature-grid { padding: 20px 5%; }
+        }
     </style>
 </head>
 <body>
+
 <nav>
     <a href="index.html" class="nav-logo">
         <img src="assets/logo.png" alt="Vesta Pacific Tech">
@@ -78,40 +134,40 @@ nav {
     <div class="nav-links">
         <a href="index.html">Home</a>
         <a href="solutions.html">Solutions</a>
-        <a href="software.html">Signage Software</a>
+        <a href="software.html" style="color: var(--accent); opacity: 1;">Signage Software</a>
         <a href="about.html">About</a>
         <a href="contact.html" class="btn-quote">Get a Quote</a>
     </div>
 </nav>
 
-    <header class="content-header">
-        <h1>Vesta Cloud OS</h1>
-        <p>A unified operating system designed to manage large-scale digital signage networks with precision and security.</p>
-    </header>
+<header class="content-header">
+    <h1>Signage Software</h1>
+    <p>A unified management system designed to control large-scale digital networks with precision, real-time sync, and enterprise security.</p>
+</header>
 
-    <div class="feature-grid">
-        <div class="feature-card">
-            <h3>Global Sync</h3>
-            <p>Deploy high-resolution content to one or one thousand screens instantly. Our CDN ensures zero-lag updates globally.</p>
-        </div>
-        <div class="feature-card">
-            <h3>Proactive Health</h3>
-            <p>Real-time hardware monitoring. Receive instant alerts before a screen goes dark, ensuring 99.9% uptime for your brand.</p>
-        </div>
-        <div class="feature-card">
-            <h3>AI Analytics</h3>
-            <p>Integrated audience measurement. Track footfall, dwell time, and demographics to optimize your content strategy.</p>
-        </div>
+<div class="feature-grid">
+    <div class="feature-card">
+        <h3>Global Sync</h3>
+        <p>Deploy high-resolution content to one or one thousand screens instantly. Our CDN ensures zero-lag updates globally.</p>
     </div>
+    <div class="feature-card">
+        <h3>Proactive Health</h3>
+        <p>Real-time hardware monitoring. Receive instant alerts before a screen goes dark, ensuring 99.9% uptime for your brand.</p>
+    </div>
+    <div class="feature-card">
+        <h3>AI Analytics</h3>
+        <p>Integrated audience measurement. Track footfall, dwell time, and demographics to optimize your content strategy.</p>
+    </div>
+</div>
 
-    <section style="text-align: center; padding: 60px 8%;">
-        <h2 style="margin-bottom: 20px;">Ready to take control?</h2>
-        <a href="contact.html" style="background: var(--accent); color: #fff; padding: 15px 40px; border-radius: 30px; text-decoration: none; font-weight: 600;">Request a Demo</a>
-    </section>
+<section class="cta-section">
+    <h2 style="margin-bottom: 30px; font-size: 2rem;">Ready to take control?</h2>
+    <a href="contact.html" style="background: var(--accent); color: #fff; padding: 16px 40px; border-radius: 30px; text-decoration: none; font-weight: 600; display: inline-block;">Request a Demo</a>
+</section>
 
-    <footer>
-        <p>&copy; 2026 VESTA PACIFIC TECH LLC. ALL RIGHTS RESERVED.</p>
-    </footer>
+<footer>
+    <p>&copy; 2026 VESTA PACIFIC TECH LLC. ALL RIGHTS RESERVED.</p>
+</footer>
 
 </body>
 </html>
