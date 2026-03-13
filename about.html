@@ -5,62 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>About Us | Vesta Pacific Tech</title>
     <style>
-        :root {
-            --accent: #0071e3; --bg: #000; --glass: rgba(255, 255, 255, 0.05);
-            --border: rgba(255, 255, 255, 0.1); --text-gray: #86868b;
-        }
-
-        /* Safari & Global Fixes */
-        * { 
-            margin: 0; padding: 0; box-sizing: border-box; 
-            -webkit-font-smoothing: antialiased;
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        body { 
-            background-color: var(--bg); 
-            background-image: radial-gradient(circle at 50% 25%, #111 0%, #000 70%);
-            background-attachment: fixed;
-            color: #fff; 
-            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif; 
-            line-height: 1.5;
-            overflow-x: hidden;
-            width: 100%;
-        }
-
-        /* --- Navigation (Global Standart) --- */
-        nav {
-            position: fixed; top: 0; width: 100%; padding: 15px 5%;
-            display: flex; justify-content: space-between; align-items: center;
-            background: rgba(0,0,0,0.85); backdrop-filter: blur(20px); 
-            -webkit-backdrop-filter: blur(20px); z-index: 1000;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .nav-logo img { 
-            height: clamp(40px, 6vw, 60px); 
-            width: auto; 
-        }
-
-        .nav-links { 
-            display: flex; 
-            gap: clamp(10px, 3vw, 25px); 
-            align-items: center; 
-        }
-
-        .nav-links a { 
-            color: #fff; text-decoration: none; 
-            font-size: clamp(0.75rem, 1.5vw, 0.9rem); 
-            opacity: 0.8; transition: 0.3s;
-            white-space: nowrap;
-        }
-        .nav-links a:hover { opacity: 1; color: var(--accent); }
-
-        .btn-quote { 
-            background: var(--accent); 
-            padding: 8px clamp(12px, 2vw, 22px); 
-            border-radius: 20px; 
-            font-weight: 600; 
-            text-decoration: none; 
-            color: #fff; 
-            transition
+        /* CSS AYNI KALACAK (YUKARIDAKİYLE AYNI STİL YAPISI) */
+        :root { --accent: #0071e3; --bg: #000; --glass: rgba(255, 255, 255, 0.05); --border: rgba(255, 255, 255, 0.1); --text-gray: #86868b; }
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-font-smoothing: antialiased; }
+        body { background-color: var(--bg); background-image: radial-gradient(circle at 50% 25%, #111 0%, #000 70%); background-attachment: fixed; color: #fff; font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif; line-height: 1.5; overflow-x: hidden; }
+        nav { position: fixed; top: 0; width: 100%; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; background: rgba(0,0,0,0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); z-index: 1000; border-bottom: 1px solid var(--border); }
+        .nav-logo img { height: clamp(40px, 6vw, 60px); }
+        .nav-links { display: flex; gap: clamp(10px, 3vw, 25px); align-items: center; }
+        .nav-links a { color: #fff; text-decoration: none; font-size: clamp(0.75rem, 1.5vw, 0.9rem); opacity: 0.8; transition: 0.3s; }
+        .btn-quote { background: var(--accent); padding: 8px 20px; border-radius: 20px; font-weight: 600; color:#fff; text-decoration:none; }
+        .about-hero { padding: 180px 8% 60px; text-align: center; }
+        .about-hero h1 { font-size: clamp(2.2rem, 8vw, 3.5rem); margin-bottom: 20px; }
+        footer { padding: 60px; text-align: center; color: #444; font-size: 0.8rem; }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="nav-logo"><img src="assets/logo.png" alt="Vesta Pacific"></a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="solutions.html">Solutions</a>
+            <a href="software.html">Signage Software</a>
+            <a href="contact.html" class="btn-quote">Get a Quote</a>
+        </div>
+    </nav>
+    <header class="about-hero">
+        <span style="color: var(--accent); font-weight: 600; letter-spacing: 2px;">OUR IDENTITY</span>
+        <h1>Born in San Diego.<br>Driven by Innovation.</h1>
+        <p style="color:var(--text-gray); max-width:700px; margin:30px auto; font-size:1.2rem;">Vesta Pacific Tech was founded to redefine the relationship between physical architecture and digital communication.</p>
+    </header>
+    <footer>&copy; 2026 VESTA PACIFIC TECH LLC.</footer>
+</body>
+</html>
