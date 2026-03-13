@@ -14,7 +14,7 @@
             --text-gray: #86868b;
         }
 
-        /* Safari & Global Fixes */
+        /* Temel Ayarlar */
         * { 
             margin: 0; padding: 0; box-sizing: border-box; 
             -webkit-font-smoothing: antialiased;
@@ -34,7 +34,7 @@
             width: 100%;
         }
 
-        /* --- Navigation (Global Standard) --- */
+        /* --- Navigasyon & Burger Menü --- */
         nav {
             position: fixed;
             top: 0; width: 100%;
@@ -45,34 +45,81 @@
             background: rgba(0,0,0,0.85);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            z-index: 9999;
+            z-index: 10000;
             border-bottom: 1px solid var(--border);
         }
 
-        .nav-logo img { height: clamp(35px, 5vw, 55px); }
-        
+        .nav-logo img { height: clamp(35px, 5vw, 50px); }
+
         .nav-links { 
             display: flex; 
-            gap: clamp(8px, 2vw, 25px); 
+            gap: 25px; 
             align-items: center; 
         }
-        
+
         .nav-links a { 
-            color: #fff; text-decoration: none; 
-            font-size: clamp(0.65rem, 1.6vw, 0.9rem); 
-            opacity: 0.8; transition: 0.3s;
+            color: #fff; 
+            text-decoration: none; 
+            font-size: 0.9rem; 
+            opacity: 0.8; 
+            transition: 0.3s;
             white-space: nowrap;
         }
-        
+
         .nav-links a:hover { opacity: 1; color: var(--accent); }
 
         .btn-quote {
             background: var(--accent) !important;
-            padding: 8px clamp(12px, 2vw, 20px) !important;
+            padding: 8px 20px !important;
             border-radius: 20px;
             font-weight: 600;
-            color: #fff !important;
             opacity: 1 !important;
+            color: #fff !important;
+        }
+
+        /* Burger İkonu */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            z-index: 10001;
+        }
+
+        .menu-toggle span {
+            width: 28px;
+            height: 2px;
+            background: #fff;
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+
+        /* Mobil Menü (Tablet & Telefon) */
+        @media (max-width: 850px) {
+            .menu-toggle { display: flex; }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 100%;
+                height: 100vh;
+                background: #000;
+                flex-direction: column;
+                justify-content: center;
+                gap: 40px;
+                transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .nav-links a { font-size: 1.5rem; }
+
+            .menu-toggle.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+            .menu-toggle.active span:nth-child(2) { opacity: 0; }
+            .menu-toggle.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
         }
 
         /* --- Hero Section --- */
@@ -101,10 +148,17 @@
             margin-bottom: 40px; 
         }
 
-        /* --- Services Grid --- */
+        .hero-btns {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        /* --- Sections --- */
         section { padding: 100px 8%; border-bottom: 1px solid #111; }
         .section-tag { color: var(--accent); font-size: 0.8rem; font-weight: 600; letter-spacing: 2px; margin-bottom: 15px; display: block; text-transform: uppercase; }
-        .section-title { font-size: clamp(2rem, 5vw, 2.8rem); margin-bottom: 50px; font-weight: 700; letter-spacing: -0.02em; }
+        .section-title { font-size: clamp(2rem, 5vw, 2.8rem); margin-bottom: 50px; font-weight: 700; }
 
         .services-grid {
             display: grid;
@@ -126,12 +180,10 @@
             transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
             background-size: cover;
             background-position: center;
+            background-color: #111;
         }
 
-        .card:hover {
-            transform: translateY(-10px);
-            border-color: var(--accent);
-        }
+        .card:hover { transform: translateY(-10px); border-color: var(--accent); }
 
         .card::before {
             content: '';
@@ -147,10 +199,8 @@
 
         footer { padding: 80px 8%; text-align: center; color: #444; border-top: 1px solid #111; }
 
-        /* Mobil Optimizasyon */
         @media (max-width: 600px) {
-            nav { padding: 12px 4%; }
-            .hero-btns { display: flex; flex-direction: column; gap: 12px; width: 100%; }
+            .hero-btns { flex-direction: column; width: 100%; }
             .hero-btns a { width: 100%; text-align: center; }
             section { padding: 60px 5%; }
         }
@@ -162,8 +212,15 @@
     <a href="index.html" class="nav-logo">
         <img src="assets/logo.png" alt="Vesta Pacific Tech">
     </a>
-    <div class="nav-links">
-        <a href="index.html" style="color: var(--accent); opacity: 1;">Home</a>
+
+    <div class="menu-toggle" id="mobile-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <div class="nav-links" id="nav-list">
+        <a href="index.html" style="color: var(--accent);">Home</a>
         <a href="solutions.html">Solutions</a>
         <a href="software.html">Signage Software</a>
         <a href="about.html">About</a>
@@ -175,8 +232,8 @@
     <span class="section-tag">San Diego, CA // EST 2026</span>
     <h1>Intelligence on Display.</h1>
     <p>Designing and managing high-performance visual networks for Southern California's premier brands.</p>
-    <div class="hero-btns" style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: center;">
-        <a href="#solutions" class="btn-quote" style="padding: 16px 40px !important;">Explore Solutions</a>
+    <div class="hero-btns">
+        <a href="#solutions" class="btn-quote" style="padding: 16px 40px !important; text-decoration: none;">Explore Solutions</a>
         <a href="contact.html" style="color: #fff; text-decoration: none; padding: 16px 40px; border: 1px solid #333; border-radius: 30px; font-weight: 500; background: rgba(255,255,255,0.05); transition: 0.3s;">Speak to an Expert</a>
     </div>
 </section>
@@ -214,6 +271,23 @@
     <p>&copy; 2026 VESTA PACIFIC TECH LLC. ALL RIGHTS RESERVED.</p>
     <p style="margin-top: 15px; font-size: 0.7rem; letter-spacing: 2px; color: #333; text-transform: uppercase;">Precision Digital Environments // info@vestapacific.tech</p>
 </footer>
+
+<script>
+    const menuToggle = document.getElementById('mobile-menu');
+    const navList = document.getElementById('nav-list');
+
+    menuToggle.addEventListener('click', () => {
+        menuToggle.classList.toggle('active');
+        navList.classList.toggle('active');
+    });
+
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            menuToggle.classList.remove('active');
+            navList.classList.remove('active');
+        });
+    });
+</script>
 
 </body>
 </html>
