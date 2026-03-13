@@ -10,7 +10,16 @@
             --border: rgba(255, 255, 255, 0.1); --text-gray: #86868b;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background-color: var(--bg); color: #fff; font-family: -apple-system, sans-serif; line-height: 1.6; }
+        body { 
+    background-color: var(--bg); 
+    /* Sadece bu satırı ekliyoruz, diğerleri aynı kalıyor */
+    background-image: radial-gradient(circle at 50% 25%, #111 0%, #000 70%);
+    background-attachment: fixed;
+    color: #fff; 
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif; 
+    line-height: 1.5;
+    overflow-x: hidden;
+}
 
         /* --- Standart Navigasyon --- */
         nav {
