@@ -67,12 +67,15 @@
 
         /* Get a Quote Butonu */
         .btn-quote {
-            background: var(--accent);
-            padding: 8px clamp(12px, 2vw, 22px);
-            border-radius: 20px;
-            font-weight: 600;
-            opacity: 1 !important;
-        }
+    background: var(--accent);
+    padding: 10px 22px;
+    border-radius: 20px;
+    font-weight: 600;
+    text-decoration: none !important;
+    color: #fff !important;
+    transition: 0.3s;
+    display: inline-block;
+}
 
         /* --- Header --- */
         .solutions-header {
@@ -133,15 +136,17 @@
 <body>
 
     <nav>
-        <a href="index.html" class="nav-logo">
-            <img src="assets/logo.png" alt="Vesta Pacific">
-        </a>
-        <div class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="software.html">Cloud OS</a>
-            <a href="contact.html" class="btn-quote">Get a Quote</a>
-        </div>
-    </nav>
+    <a href="index.html" class="nav-logo">
+        <img src="assets/logo.png" alt="VP TECH" onerror="this.style.display='none'; this.after('VESTA PACIFIC')">
+    </a>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="solutions.html">Solutions</a>
+        <a href="software.html">Cloud OS</a>
+        <a href="about.html">About</a>
+        <a href="contact.html" class="btn-quote">Get a Quote</a>
+    </div>
+</nav>
 
     <header class="solutions-header">
         <span style="color: var(--accent); font-weight: 600; letter-spacing: 2px;">PORTFOLIO</span>
