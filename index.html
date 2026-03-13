@@ -3,20 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vesta Pacific Tech | Digital Signage San Diego</title>
+    <title>Vesta Pacific Tech | Enterprise Digital Signage</title>
     <style>
         :root {
             --accent: #0071e3;
             --bg-dark: #000000;
-            --bg-gradient: radial-gradient(circle at 50% -20%, #1a1a1a 0%, #000000 80%);
-            --text-gray: #86868b;
+            /* Spotlight efekti: Merkeze hafif bir lacivert dokunuş */
+            --spotlight: radial-gradient(circle at 50% 40%, #161617 0%, #000000 70%);
+            --text-gray: #a1a1a6;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body { 
-            background: var(--bg-dark);
-            background-image: var(--bg-gradient); /* Premium derinlik katan geçiş */
+            background-color: var(--bg-dark);
+            background-image: var(--spotlight);
             background-attachment: fixed;
             color: #fff; 
             font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif; 
@@ -24,41 +25,39 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* --- Navigation: PC ve Mobil Dengesi --- */
+        /* --- Navigation --- */
         nav {
             position: fixed;
             top: 0; width: 100%;
-            padding: 25px 8%; /* PC'de daha ferah bir alan */
+            padding: 30px 8%; /* PC'de daha ferah */
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(0,0,0,0.7);
+            background: rgba(0,0,0,0.75);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             z-index: 1000;
             border-bottom: 1px solid rgba(255,255,255,0.08);
-            transition: all 0.3s ease;
         }
 
-        /* Logo PC'de daha heybetli */
+        /* PC Logo: Daha kurumsal ve büyük */
         .nav-logo img { 
-            height: 55px; /* PC için ideal yükseklik */
+            height: 70px; /* PC için ciddi bir boyut */
             width: auto; 
-            transition: transform 0.3s ease;
+            transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        .nav-logo img:hover { transform: scale(1.03); }
-
-        .nav-links { display: flex; gap: 35px; align-items: center; }
+        
+        .nav-links { display: flex; gap: 40px; align-items: center; }
         .nav-links a { 
-            color: #fff; text-decoration: none; font-size: 1rem; 
-            opacity: 0.7; transition: 0.3s; font-weight: 500;
+            color: #fff; text-decoration: none; font-size: 1.1rem; 
+            opacity: 0.8; transition: 0.3s;
         }
         .nav-links a:hover { opacity: 1; color: var(--accent); }
 
         .btn-quote {
             background: var(--accent);
-            padding: 12px 26px;
-            border-radius: 25px;
+            padding: 14px 30px;
+            border-radius: 30px;
             font-weight: 600;
             text-decoration: none;
             color: #fff;
@@ -77,50 +76,26 @@
         }
 
         .hero h1 { 
-            font-size: clamp(2.8rem, 7vw, 5.5rem); 
-            letter-spacing: -0.04em; 
-            margin-bottom: 20px; 
+            font-size: clamp(3rem, 8vw, 6rem); 
+            letter-spacing: -0.05em; 
+            margin-bottom: 25px; 
             font-weight: 700;
-            background: linear-gradient(to bottom, #fff 60%, #888);
+            /* Başlığa "metalik" bir parlama verdik */
+            background: linear-gradient(180deg, #ffffff 40%, #a1a1a6 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        .hero p { color: var(--text-gray); max-width: 750px; font-size: 1.4rem; margin-bottom: 40px; }
+        .hero p { color: var(--text-gray); max-width: 800px; font-size: 1.5rem; margin-bottom: 45px; }
 
-        /* --- Services Grid --- */
-        section { padding: 100px 8%; }
-        .section-title { font-size: 2.8rem; margin-bottom: 60px; font-weight: 700; text-align: center; }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-        }
-
-        .card {
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 25px;
-            padding: 40px;
-            transition: 0.4s;
-            text-decoration: none;
-            color: white;
-        }
-        .card:hover { 
-            background: rgba(255,255,255,0.06); 
-            border-color: var(--accent);
-            transform: translateY(-5px); 
-        }
-
-        /* --- Responsive: Mobil Ayarları --- */
+        /* --- Mobil Ayarları --- */
         @media (max-width: 768px) {
             nav { padding: 15px 6%; }
-            .nav-logo img { height: 38px; } /* Mobilde ekranı kaplamasın */
+            .nav-logo img { height: 45px; } /* Mobilde yine makul boyutta */
             .nav-links { gap: 15px; }
-            .nav-links a:not(.btn-quote) { font-size: 0.8rem; }
-            .hero h1 { font-size: 3.2rem; }
-            .hero p { font-size: 1.1rem; }
+            .nav-links a:not(.btn-quote) { display: none; }
+            .hero h1 { font-size: 3.5rem; }
+            .hero p { font-size: 1.2rem; }
         }
     </style>
 </head>
@@ -128,7 +103,7 @@
 
     <nav>
         <a href="index.html" class="nav-logo">
-            <img src="assets/logo.png" alt="Vesta Pacific Tech" onerror="this.style.display='none'; this.after('VESTA PACIFIC')">
+            <img src="assets/logo.png" alt="Vesta Pacific Tech" onerror="this.style.display='none'; this.after('VP TECH')">
         </a>
         <div class="nav-links">
             <a href="#solutions">Solutions</a>
@@ -138,36 +113,14 @@
     </nav>
 
     <section class="hero">
-        <span style="color: var(--accent); font-weight: 600; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 15px; font-size: 0.9rem;">San Diego, California</span>
+        <span style="color: var(--accent); font-weight: 700; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 20px; font-size: 0.9rem;">San Diego, CA</span>
         <h1>Intelligence on Display.</h1>
-        <p>Premium digital signage networks and enterprise management for Southern California's leading brands.</p>
+        <p>Designing high-performance visual networks and enterprise digital environments for premium brands.</p>
         <div style="display: flex; gap: 20px; flex-wrap: wrap; justify-content: center;">
-            <a href="#solutions" class="btn-quote" style="padding: 16px 40px;">Explore Solutions</a>
-            <a href="mailto:info@vestapacific.tech" style="color: #fff; text-decoration: none; padding: 16px 40px; border: 1px solid #333; border-radius: 30px; font-weight: 500; transition: 0.3s;">Contact Expert</a>
+            <a href="#solutions" class="btn-quote" style="padding: 18px 45px;">Explore Solutions</a>
+            <a href="mailto:info@vestapacific.tech" style="color: #fff; text-decoration: none; padding: 18px 45px; border: 1px solid #444; border-radius: 35px; font-weight: 500; background: rgba(255,255,255,0.03); transition: 0.3s;">Contact Us</a>
         </div>
     </section>
-
-    <section id="solutions">
-        <h2 class="section-title">Visual Excellence</h2>
-        <div class="services-grid">
-            <div class="card">
-                <h3 style="color: var(--accent); margin-bottom: 10px;">Hospitality</h3>
-                <p>Digital menu boards and interactive guest experiences.</p>
-            </div>
-            <div class="card">
-                <h3 style="color: var(--accent); margin-bottom: 10px;">Corporate</h3>
-                <p>Enterprise-grade video walls and internal communication displays.</p>
-            </div>
-            <div class="card">
-                <h3 style="color: var(--accent); margin-bottom: 10px;">Real Estate</h3>
-                <p>High-impact property showcases for luxury coastal markets.</p>
-            </div>
-        </div>
-    </section>
-
-    <footer style="padding: 60px; text-align: center; border-top: 1px solid #111; color: #444; font-size: 0.8rem;">
-        &copy; 2026 VESTA PACIFIC TECH LLC. ALL RIGHTS RESERVED.
-    </footer>
 
 </body>
 </html>
