@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us | Vesta Pacific Tech</title>
+    <title>Contact Us | Vesta Pacific Tech</title>
     <style>
         :root {
             --accent: #0071e3; --bg: #000; --glass: rgba(255, 255, 255, 0.05);
             --border: rgba(255, 255, 255, 0.1); --text-gray: #86868b;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-       body { 
+        body { 
     background-color: var(--bg); 
     /* Sadece bu satırı ekliyoruz, diğerleri aynı kalıyor */
     background-image: radial-gradient(circle at 50% 25%, #111 0%, #000 70%);
@@ -21,7 +21,7 @@
     overflow-x: hidden;
 }
 
-        /* --- Standart Navigasyon (Tüm sayfalarda aynı) --- */
+        /* --- Standart Navigasyon --- */
         nav {
             position: fixed; top: 0; width: 100%; padding: 15px 8%;
             display: flex; justify-content: space-between; align-items: center;
@@ -32,19 +32,16 @@
         .nav-links { display: flex; gap: 25px; align-items: center; }
         .nav-links a { color: #fff; text-decoration: none; font-size: 0.9rem; opacity: 0.8; transition: 0.3s; }
         .nav-links a:hover { opacity: 1; color: var(--accent); }
-        .btn-quote { background: var(--accent); padding: 10px 22px; border-radius: 20px; font-weight: 600; text-decoration: none; color: #fff; transition: 0.3s; }
 
-        /* --- İçerik --- */
-        .about-hero { padding: 180px 8% 80px; text-align: center; }
-        .about-hero h1 { font-size: clamp(2.5rem, 8vw, 4rem); margin-bottom: 30px; letter-spacing: -1px; }
-        .story-content { max-width: 900px; margin: 0 auto; padding: 0 8% 100px; }
-        .story-content p { font-size: 1.2rem; color: var(--text-gray); margin-bottom: 30px; }
+        /* --- İletişim Formu Alanı --- */
+        .contact-wrapper { padding: 180px 8% 80px; display: flex; flex-direction: column; align-items: center; text-align: center; }
+        .contact-card { background: var(--glass); padding: 60px; border-radius: 40px; border: 1px solid var(--border); max-width: 600px; width: 100%; }
+        h1 { font-size: 3rem; margin-bottom: 10px; letter-spacing: -1px; }
+        .email-link { color: var(--accent); font-size: 1.8rem; text-decoration: none; font-weight: 700; display: block; margin: 30px 0; transition: 0.3s; }
+        .email-link:hover { transform: scale(1.05); }
         
-        .values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 50px; }
-        .value-card { background: var(--glass); padding: 40px; border-radius: 25px; border: 1px solid var(--border); }
-        .value-card h3 { color: var(--accent); margin-bottom: 15px; }
-
-        footer { padding: 60px 8%; text-align: center; border-top: 1px solid #111; color: #444; }
+        .info-text { color: var(--text-gray); font-size: 1.1rem; margin-bottom: 40px; }
+        footer { padding: 60px 8%; text-align: center; color: #444; font-size: 0.8rem; }
     </style>
 </head>
 <body>
@@ -54,27 +51,20 @@
             <a href="index.html">Home</a>
             <a href="solutions.html">Solutions</a>
             <a href="software.html">Cloud OS</a>
-            <a href="about.html" style="color: var(--accent); opacity: 1;">About</a>
-            <a href="contact.html" class="btn-quote">Get a Quote</a>
+            <a href="about.html">About</a>
         </div>
     </nav>
 
-    <header class="about-hero">
-        <span style="color: var(--accent); letter-spacing: 2px; font-weight: 600; text-transform: uppercase; font-size: 0.8rem;">Our Identity</span>
-        <h1>Born in San Diego. <br>Driven by Innovation.</h1>
-    </header>
-
-    <div class="story-content">
-        <p>Vesta Pacific Tech was founded to redefine the relationship between physical architecture and digital communication. Based in San Diego, we serve the entire Southern California region with premium visual solutions.</p>
-        <div class="values-grid">
-            <div class="value-card">
-                <h3>Local Expertise</h3>
-                <p>We provide on-site technical support and custom hardware deployments for the SD tech corridor.</p>
-            </div>
-            <div class="value-card">
-                <h3>Future-Ready</h3>
-                <p>From AI-driven analytics to transparent OLED displays, we bring tomorrow's tech to your space today.</p>
-            </div>
+    <div class="contact-wrapper">
+        <div class="contact-card">
+            <h1>Start Your Project.</h1>
+            <p class="info-text">Our specialists are ready to design a custom digital environment for your business infrastructure.</p>
+            
+            <span style="font-size: 0.7rem; color: var(--accent); letter-spacing: 2px; font-weight: bold; text-transform: uppercase;">Direct Inquiry</span>
+            <a href="mailto:info@vestapacific.tech" class="email-link">info@vestapacific.tech</a>
+            
+            <p style="margin-bottom: 10px;"><strong>Region:</strong> San Diego, California</p>
+            <p style="color: var(--text-gray); font-size: 0.9rem;">Expert consultation for Southern California’s tech corridor.</p>
         </div>
     </div>
 
