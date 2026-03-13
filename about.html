@@ -2,94 +2,141 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>About Us | Vesta Pacific Tech</title>
     <style>
         :root {
-            --accent: #0071e3; --bg: #000; --glass: rgba(255, 255, 255, 0.05);
-            --border: rgba(255, 255, 255, 0.1); --text-gray: #86868b;
+            --accent: #0071e3;
+            --bg: #000;
+            --glass: rgba(255, 255, 255, 0.05);
+            --border: rgba(255, 255, 255, 0.1);
+            --text-gray: #86868b;
         }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-       body { 
-    background-color: var(--bg); 
-    /* Sadece bu satırı ekliyoruz, diğerleri aynı kalıyor */
-    background-image: radial-gradient(circle at 50% 25%, #111 0%, #000 70%);
-    background-attachment: fixed;
-    color: #fff; 
-    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif; 
-    line-height: 1.5;
-    overflow-x: hidden;
-}
 
-        /* --- Standart Navigasyon (Tüm sayfalarda aynı) --- */
+        /* Global Reset */
+        * { 
+            margin: 0; padding: 0; box-sizing: border-box; 
+            -webkit-font-smoothing: antialiased;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body { 
+            background-color: var(--bg); 
+            background-image: radial-gradient(circle at 50% 25%, #111 0%, #000 70%);
+            background-attachment: fixed;
+            color: #fff; 
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif; 
+            line-height: 1.5;
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        /* --- Global Navigasyon --- */
         nav {
-            position: fixed; top: 0; width: 100%; padding: 15px 8%;
-            display: flex; justify-content: space-between; align-items: center;
-            background: rgba(0,0,0,0.85); backdrop-filter: blur(20px); z-index: 1000;
+            position: fixed;
+            top: 0; width: 100%;
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0,0,0,0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 1000;
             border-bottom: 1px solid var(--border);
         }
-        .nav-logo img { height: 60px; }
-        .nav-links { display: flex; gap: 25px; align-items: center; }
-        .nav-links a { color: #fff; text-decoration: none; font-size: 0.9rem; opacity: 0.8; transition: 0.3s; }
+
+        .nav-logo img { height: clamp(35px, 5vw, 55px); }
+
+        .nav-links { 
+            display: flex; 
+            gap: clamp(8px, 2vw, 25px); 
+            align-items: center; 
+        }
+
+        .nav-links a { 
+            color: #fff; 
+            text-decoration: none; 
+            font-size: clamp(0.65rem, 1.6vw, 0.9rem); 
+            opacity: 0.8; 
+            transition: 0.3s;
+            white-space: nowrap;
+        }
+
         .nav-links a:hover { opacity: 1; color: var(--accent); }
-        .btn-quote { background: var(--accent); padding: 10px 22px; border-radius: 20px; font-weight: 600; text-decoration: none; color: #fff; transition: 0.3s; }
 
-        /* --- İçerik --- */
-        .about-hero { padding: 180px 8% 80px; text-align: center; }
-        .about-hero h1 { font-size: clamp(2.5rem, 8vw, 4rem); margin-bottom: 30px; letter-spacing: -1px; }
-        .story-content { max-width: 900px; margin: 0 auto; padding: 0 8% 100px; }
-        .story-content p { font-size: 1.2rem; color: var(--text-gray); margin-bottom: 30px; }
+        .btn-quote {
+            background: var(--accent) !important;
+            padding: 8px clamp(12px, 2vw, 20px) !important;
+            border-radius: 20px;
+            font-weight: 600;
+            opacity: 1 !important;
+            color: #fff !important;
+        }
+
+        /* --- About Sayfası İçerik --- */
+        .about-hero { 
+            padding: 180px 8% 60px; 
+            text-align: center; 
+        }
         
-        .values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 50px; }
-        .value-card { background: var(--glass); padding: 40px; border-radius: 25px; border: 1px solid var(--border); }
-        .value-card h3 { color: var(--accent); margin-bottom: 15px; }
+        .about-hero h1 { 
+            font-size: clamp(2.2rem, 8vw, 4rem); 
+            margin-bottom: 30px; 
+            letter-spacing: -0.04em; 
+            line-height: 1.1;
+        }
+        
+        .story-content { 
+            max-width: 900px; 
+            margin: 0 auto; 
+            padding: 0 8% 100px; 
+            text-align: center;
+        }
+        
+        .story-content p { 
+            font-size: clamp(1.1rem, 2vw, 1.3rem); 
+            color: var(--text-gray); 
+            margin-bottom: 40px; 
+            line-height: 1.6;
+        }
+        
+        .values-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); 
+            gap: 30px; 
+            margin-top: 60px; 
+        }
+        
+        .value-card { 
+            background: var(--glass); 
+            padding: 40px; 
+            border-radius: 30px; 
+            border: 1px solid var(--border); 
+            text-align: left;
+            transition: 0.3s;
+        }
 
-        footer { padding: 60px 8%; text-align: center; border-top: 1px solid #111; color: #444; }
+        .value-card:hover {
+            border-color: var(--accent);
+            background: rgba(255, 255, 255, 0.08);
+        }
+        
+        .value-card h3 { color: var(--accent); margin-bottom: 15px; font-size: 1.5rem; }
+        .value-card p { font-size: 1rem; color: var(--text-gray); }
+
+        footer { padding: 60px 8%; text-align: center; color: #444; font-size: 0.8rem; border-top: 1px solid #111; }
+
+        @media (max-width: 600px) {
+            nav { padding: 12px 4%; }
+            .about-hero { padding-top: 140px; }
+            .story-content { padding: 0 5% 80px; }
+        }
     </style>
 </head>
-/* --- Navigasyonun Her Cihaza Sığması İçin Güncel Stil --- */
-nav {
-    position: fixed;
-    top: 0; width: 100%;
-    padding: 15px 4%; /* Payları biraz daralttık */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: rgba(0,0,0,0.85);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    z-index: 1000;
-    border-bottom: 1px solid var(--border);
-}
+<body>
 
-.nav-links { 
-    display: flex; 
-    gap: clamp(8px, 2vw, 20px); /* Boşluğu ekrana göre otomatik ayarlar */
-    align-items: center; 
-}
-
-.nav-links a { 
-    color: #fff; 
-    text-decoration: none; 
-    font-size: clamp(0.65rem, 1.8vw, 0.9rem); /* Mobilde yazıyı otomatik küçültür */
-    opacity: 0.8; 
-    white-space: nowrap; /* Yazıların alt satıra kaymasını engeller */
-}
-
-.btn-quote {
-    background: var(--accent);
-    padding: 6px clamp(10px, 1.5vw, 18px) !important;
-    border-radius: 20px;
-    font-weight: 600;
-    opacity: 1 !important;
-}
-
-/* Mobil için özel ayar (Telefonlar için) */
-@media (max-width: 600px) {
-    .nav-logo img { height: 35px; } /* Logoyu mobilde biraz küçülttük */
-    .nav-links { gap: 8px; }
-}
-    <nav>
+<nav>
     <a href="index.html" class="nav-logo">
         <img src="assets/logo.png" alt="Vesta Pacific Tech">
     </a>
@@ -97,30 +144,34 @@ nav {
         <a href="index.html">Home</a>
         <a href="solutions.html">Solutions</a>
         <a href="software.html">Signage Software</a>
-        <a href="about.html">About</a>
+        <a href="about.html" style="color: var(--accent); opacity: 1;">About</a>
         <a href="contact.html" class="btn-quote">Get a Quote</a>
     </div>
 </nav>
 
-    <header class="about-hero">
-        <span style="color: var(--accent); letter-spacing: 2px; font-weight: 600; text-transform: uppercase; font-size: 0.8rem;">Our Identity</span>
-        <h1>Born in San Diego. <br>Driven by Innovation.</h1>
-    </header>
+<header class="about-hero">
+    <span style="color: var(--accent); letter-spacing: 2px; font-weight: 600; text-transform: uppercase; font-size: 0.8rem;">Our Identity</span>
+    <h1>Born in San Diego. <br>Driven by Innovation.</h1>
+</header>
 
-    <div class="story-content">
-        <p>Vesta Pacific Tech was founded to redefine the relationship between physical architecture and digital communication. Based in San Diego, we serve the entire Southern California region with premium visual solutions.</p>
-        <div class="values-grid">
-            <div class="value-card">
-                <h3>Local Expertise</h3>
-                <p>We provide on-site technical support and custom hardware deployments for the SD tech corridor.</p>
-            </div>
-            <div class="value-card">
-                <h3>Future-Ready</h3>
-                <p>From AI-driven analytics to transparent OLED displays, we bring tomorrow's tech to your space today.</p>
-            </div>
+<div class="story-content">
+    <p>Vesta Pacific Tech was founded to redefine the relationship between physical architecture and digital communication. Based in San Diego, we serve the entire Southern California region with premium visual solutions.</p>
+    
+    <div class="values-grid">
+        <div class="value-card">
+            <h3>Local Expertise</h3>
+            <p>We provide on-site technical support and custom hardware deployments for the San Diego tech corridor and beyond.</p>
+        </div>
+        <div class="value-card">
+            <h3>Future-Ready</h3>
+            <p>From AI-driven analytics to transparent OLED displays, we bring tomorrow's technology to your business environment today.</p>
         </div>
     </div>
+</div>
 
-    <footer><p>&copy; 2026 VESTA PACIFIC TECH LLC.</p></footer>
+<footer>
+    <p>&copy; 2026 VESTA PACIFIC TECH LLC. ALL RIGHTS RESERVED.</p>
+</footer>
+
 </body>
 </html>
